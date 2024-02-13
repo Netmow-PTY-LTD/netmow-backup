@@ -1,4 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/backupnetmow/public_html/wp-content/plugins/netmow-backup
-    - netmow-backup.php $DEPLOYPATH
+    - /bin/cp netmow-backup.php $DEPLOYPATH

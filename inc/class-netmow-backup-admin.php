@@ -294,7 +294,7 @@
 				}
 				else
 				{
-				// echo '<a href="' . $google_client->createAuthUrl() . '"><img src="' . get_template_directory_uri() . '/assets/img/google.png" /></a>';
+				echo '<a href="' . $google_client->createAuthUrl() . '"><img src="' . get_template_directory_uri() . '/assets/img/google.png" /></a>';
 				}
 				?>
 				</div>

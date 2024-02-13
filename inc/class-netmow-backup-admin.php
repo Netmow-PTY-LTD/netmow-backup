@@ -55,7 +55,7 @@
 		$this->netmow_backup_load_zip_classes();
 		$this->netmow_backup_create_backup();
 		$this->netmow_backup_google_auth();
-
+		$this->netmow_backup_google_keys();
 	}
 
 	/**
@@ -208,6 +208,19 @@
 		
 			}
 		
+		}
+	}
+
+	private function netmow_backup_google_keys(){
+		if( isset($_POST['x_submit']) ) {
+			echo '<h1>The name of your OAuth 2.0 client. This name is </h1>';
+			$data = array(
+					'clientid'  => sanitize_text_field( $_POST['clientid'] ),
+					'clientsec' => sanitize_text_field( $_POST['clientsec'] ),
+					'redirecturl'   => sanitize_text_field( $_POST['redirecturl'] )
+				);
+			//entering data into options table
+			update_option( 'netmow_google_keys', $data );
 		}
 	}
 

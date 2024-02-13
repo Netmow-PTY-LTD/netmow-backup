@@ -156,7 +156,6 @@
 	}
 
 	private function netmow_backup_google_auth(){
-		echo '<h1>yyyy</h1>';
 		include plugin_dir_path( __FILE__ ) . "net-config.php";
 		// require_once plugin_dir_path( __FILE__ ) . 'inc/class-init-netmow-backup-core.php';
 
@@ -252,7 +251,7 @@
 				<div class="panel panel-default">
 
 				<?php 
-					include WP_PLUGIN_DIR . '/miyn-backup/net-config.php';
+					include WP_PLUGIN_DIR . '/netmow-backup/net-config.php';
 
 					$acc_valus = get_option( 'netmow_google_account_data' );
 					$g_access_token = '';

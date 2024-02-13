@@ -18,8 +18,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-
-
 // Current plugin version.
 define( 'NETMOW_BACKUP_VERSION', '1.0' );
 

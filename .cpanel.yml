@@ -1,0 +1,3 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/backupnetmow/public_html/wp-content/plugins/netmow-backup

@@ -156,6 +156,7 @@
 	}
 
 	private function netmow_backup_google_auth(){
+		echo '<h1>yyyy</h1>';
 		include plugin_dir_path( __FILE__ ) . "net-config.php";
 		// require_once plugin_dir_path( __FILE__ ) . 'inc/class-init-netmow-backup-core.php';
 

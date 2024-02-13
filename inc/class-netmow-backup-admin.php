@@ -54,6 +54,7 @@
 		$this->plugin_version = $plugin_version;
 		$this->netmow_backup_load_zip_classes();
 		$this->netmow_backup_create_backup();
+		$this->netmow_backup_google_auth();
 
 	}
 
@@ -151,6 +152,62 @@
 	private function netmow_backup_create_backup(){
 		if (isset($_POST["Submit1"])) {
 			$this->netmow_backup_zip_and_push();
+		}
+	}
+
+	private function netmow_backup_google_auth(){
+		include plugin_dir_path( __FILE__ ) . "net-config.php";
+		// require_once plugin_dir_path( __FILE__ ) . 'inc/class-init-netmow-backup-core.php';
+
+		if (isset($_GET["code"])) {
+			
+			$token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+		
+			if (!isset($token["error"])) {
+			
+			$google_values = get_option( 'netmow_backup_google_account_data' );
+			$accessToken = $google_values['nb_g_access_token'];
+			
+			if($token["access_token"]){
+				$google_client->setAccessToken($token["access_token"]);
+			}else{
+				$google_client->setAccessToken($accessToken);
+			}
+		
+			$google_service = new Google_Service_Oauth2($google_client);
+			$data = $google_service->userinfo->get();
+			if (!empty($data["given_name"])) {
+				$user_first_name = $data["given_name"];
+			}
+			if (!empty($data["family_name"])) {
+				$user_last_name = $data["family_name"];
+			}
+			if (!empty($data["email"])) {
+				$user_email_address = $data["email"];
+			}
+			if (!empty($data["gender"])) {
+				$user_gender = $data["gender"];
+			}
+			if (!empty($data["picture"])) {
+				$user_image = $data["picture"];
+			}
+			$gdata = array(
+				'nb_g_access_token'  => $token["access_token"],
+				'user_first_name' => $user_first_name,
+				'user_last_name' => $user_last_name,
+				'user_email_address' => $user_email_address,
+				'user_gender' => $user_gender,
+				'user_image' => $user_image,
+			);
+			//entering data into options table
+			update_option( 'netmow_backup_google_account_data', $gdata );
+		
+			// echo '<h1>Auth Done From Google</h1>';
+			$home_url=home_url();
+			header('Location: /wp-admin/admin.php?page=netmow-backup');
+		
+			}
+		
 		}
 	}
 

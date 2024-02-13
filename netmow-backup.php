@@ -17,7 +17,7 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-echo '<h1>If this file is called directly, abort  ggg ttt rrrr</h1>';
+echo '<h1>If this file is called directly, abort  guti lal</h1>';
 
 // Current plugin version.
 define( 'NETMOW_BACKUP_VERSION', '1.0' );

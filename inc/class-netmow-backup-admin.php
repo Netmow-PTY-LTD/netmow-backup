@@ -211,7 +211,7 @@
 			echo '<h1>Auth Done From Google</h1>';
 			// $home_url=home_url();
 			// header('Location: /wp-admin/admin.php?page=netmow-backup');
-			// $this->add_header_xua();
+			$this->add_header_xua();
 			
 		
 			}
@@ -296,7 +296,6 @@
 						$user_email_address = $acc_valus['user_email_address'] ? $acc_valus['user_email_address'] : '';
 						$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
 					}
-					var_dump($acc_valus['g_access_token']);
 				?>
 
 				<?php

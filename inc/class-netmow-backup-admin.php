@@ -214,7 +214,7 @@
 			// $home_url=home_url();
 			// header('Location: /wp-admin/admin.php?page=netmow-backup');
 			// $this->add_header_xua();
-			var_dump($google_service);
+			var_dump($data);
 		
 			}
 		

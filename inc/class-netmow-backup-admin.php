@@ -276,7 +276,7 @@
 				<div class="panel panel-default">
 
 				<?php 
-					// include plugin_dir_path( __DIR__ ) . "net-config.php";
+					include plugin_dir_path( __DIR__ ) . "net-config.php";
 
 					$acc_valus = get_option( 'netmow_backup_google_account_data' );
 					$g_access_token = '';

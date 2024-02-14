@@ -160,7 +160,7 @@
 		// your login logic or whatever should go here
 		// ....
 		// header('Location: /wp-admin/admin.php?page=netmow-backup');
-		wp_redirect( home_url( '/wp-admin/admin.php?page=netmow-backup' ) );
+		wp_safe_redirect( home_url( '/wp-admin/admin.php?page=netmow-backup' ) );
 		exit();
 	}
 

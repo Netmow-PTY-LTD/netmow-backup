@@ -57,6 +57,7 @@
 		$this->netmow_backup_google_auth();
 		$this->netmow_backup_google_keys();
 		$this->netmow_backup_google_revoke();
+		add_filter( 'cron_schedules', 'netmow_backup_add_cron_schedules' );
 		add_action( 'admin_init', 'netmow_backup_add_scheduled_event' );
 		add_action( 'netmow_backup_cron_hook', 'netmow_backup_cron_task' );
 	}
@@ -358,13 +359,21 @@
 	private function netmow_backup_google_revoke() {
 		$time = wp_next_scheduled('netmow_backup_cron_hook');
 		echo '<h1>'.get_date_from_gmt( date('Y-m-d H:i:s', $time) ).'</h1>';
-		
+
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
 		if (array_key_exists("revoke", $_POST)) {
 			$google_client->revokeToken();
 			session_destroy();
 			delete_option('netmow_backup_google_account_data');
 		}
+	}
+
+    public function netmow_backup_add_cron_schedules( $schedules = array() ) {
+		$schedules['every_1_min'] = array(
+		'interval' => 30, // 600 seconds means 10 minutes.
+		'display' => __( 'Every 5 Min', 'netmow' ),
+		);
+		return $schedules;
 	}
 
     public function netmow_backup_add_scheduled_event() {

@@ -220,7 +220,6 @@
 			// $this->add_header_xua();
 			// $this->add_header_xua();
 			
-		
 			}
 		
 		}

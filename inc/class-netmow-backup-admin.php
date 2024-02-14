@@ -158,9 +158,8 @@
 	}
 
 	public function add_header_xua() {
-		// session_destroy();
-		// $home_url=home_url();
-		// header('Location: {$home_url}');
+		header("Location: https://www.examplecom/", true, 301);
+		exit;
 	}
 
 	public function netmow_backup_google_auth(){

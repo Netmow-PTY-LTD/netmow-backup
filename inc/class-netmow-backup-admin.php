@@ -168,8 +168,9 @@
 			// $home_url=home_url();
 			// header('Location: /wp-admin/admin.php?page=netmow-backup');
 			// $this->add_header_xua();
-			wp_safe_redirect( home_url( '/wp-admin/admin.php?page=netmow-backup' ) );
-			exit();
+			// wp_safe_redirect( home_url( '/wp-admin/admin.php?page=netmow-backup' ) );
+			// exit();
+			wp_redirect('http://example.com/custom', $status );
 
 		if (isset($_GET["code"])) {
 			

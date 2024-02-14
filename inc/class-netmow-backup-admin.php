@@ -164,7 +164,7 @@
 	public function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
 		
-		$this->add_header_xua();
+		// $this->add_header_xua();
 		// header('Location: /wp-admin/admin.php?page=netmow-backup');
 
 		if (isset($_GET["code"])) {

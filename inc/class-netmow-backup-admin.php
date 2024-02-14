@@ -163,10 +163,6 @@
 
 	public function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
-		
-		// $this->add_header_xua();
-		// header('Location: /wp-admin/admin.php?page=netmow-backup');
-		var_dump(get_option( 'netmow_backup_google_account_data' ));
 
 		if (isset($_GET["code"])) {
 			
@@ -276,7 +272,6 @@
 
 				<?php 
 					include plugin_dir_path( __DIR__ ) . "net-config.php";
-						var_dump(get_option( 'netmow_backup_google_account_data' ));
 
 					$acc_valus = get_option( 'netmow_backup_google_account_data' );
 					$g_access_token = '';
@@ -291,6 +286,7 @@
 						$user_email_address = $acc_valus['user_email_address'] ? $acc_valus['user_email_address'] : '';
 						$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
 					}
+					var_dump($acc_valus['g_access_token']);
 				?>
 
 				<?php

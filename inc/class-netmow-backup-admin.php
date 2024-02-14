@@ -171,7 +171,7 @@
 			if (!isset($token["error"])) {
 			
 			$google_values = get_option( 'netmow_backup_google_account_data' );
-			$accessToken = $google_values['nb_g_access_token'];
+			$accessToken = $google_values['g_access_token'];
 			
 			if($token["access_token"]){
 				$google_client->setAccessToken($token["access_token"]);
@@ -197,7 +197,7 @@
 				$user_image = $data["picture"];
 			}
 			$gdata = array(
-				'nb_g_access_token'  => $token["access_token"],
+				'g_access_token'  => $token["access_token"],
 				'user_first_name' => $user_first_name,
 				'user_last_name' => $user_last_name,
 				'user_email_address' => $user_email_address,

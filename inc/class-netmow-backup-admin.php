@@ -158,13 +158,8 @@
 	}
 
 	public function add_header_xua() {
-		// header('Location: /test');
-		session_unset();
-		session_destroy();
-		ob_start();
-		header("location:home.php");
-		ob_end_flush();
-		exit();
+        wp_redirect(admin_url('/admin.php?page=theme_options', 'http'), 301);
+        exit;
 	}
 
 	public function netmow_backup_google_auth(){

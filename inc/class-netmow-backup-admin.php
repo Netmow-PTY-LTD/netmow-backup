@@ -233,7 +233,7 @@
 			echo "<br>Zip File ID: " . $zipFile->id;
 	
 			if($sqlFile->id && $zipFile->id){
-				netmow_backup_recursive_remove(WP_CONTENT_DIR . "/netmow-backup/" . $today);
+				$this->netmow_backup_recursive_remove(WP_CONTENT_DIR . "/netmow-backup/" . $today);
 			}
 	
 		}

@@ -160,7 +160,7 @@
 		echo '<h1>Teiuhjdfo uhdfhue iudhfeowhn</h1>';
 		// header('Location: /wp-admin/admin.php?page=netmow-backup');
 
-		**ob_start();**
+		ob_start();
 
 		include 'header.php';
 		
@@ -168,7 +168,7 @@
 		
 		header('Location: /wp-admin/admin.php?page=netmow-backup');
 		
-		**ob_end_flush();**
+		ob_end_flush();
 		
 		exit;
 

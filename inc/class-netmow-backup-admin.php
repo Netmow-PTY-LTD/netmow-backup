@@ -158,7 +158,7 @@
 	}
 
 	public function add_header_xua() {
-		$nbRedirect = get_admin_url() . '/admin.php?page=netmow-backup';;
+		$nbRedirect = get_admin_url() . 'admin.php?page=netmow-backup';;
 		echo '<script type="text/javascript">window.location.replace("' . $nbRedirect . '");</script>';
 	}
 

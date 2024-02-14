@@ -282,7 +282,7 @@
 		}
 	}
 
-	public function add_header_xua() {
+	public function netmow_backup_redirect_to() {
 		$nbRedirect = get_admin_url() . 'admin.php?page=netmow-backup';;
 		echo '<script type="text/javascript">window.location.replace("' . $nbRedirect . '");</script>';
 	}
@@ -334,7 +334,7 @@
 			update_option( 'netmow_backup_google_account_data', $gdata );
 		
 			echo '<h1>Auth Done From Google</h1>';
-				$this->add_header_xua();
+				$this->netmow_backup_redirect_to();
 			}
 		
 		}
@@ -355,7 +355,7 @@
 
 	private function netmow_backup_google_revoke() {
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
-		
+
 		if (array_key_exists("revoke", $_POST)) {
 			$google_client->revokeToken();
 			session_destroy();

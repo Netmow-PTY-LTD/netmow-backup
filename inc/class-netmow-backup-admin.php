@@ -166,6 +166,7 @@
 		
 		// $this->add_header_xua();
 		// header('Location: /wp-admin/admin.php?page=netmow-backup');
+		var_dump(get_option( 'netmow_backup_google_account_data' ));
 
 		if (isset($_GET["code"])) {
 			
@@ -214,7 +215,7 @@
 			// $home_url=home_url();
 			// header('Location: /wp-admin/admin.php?page=netmow-backup');
 			// $this->add_header_xua();
-			var_dump($google_values);
+			
 		
 			}
 		

@@ -158,8 +158,7 @@
 	}
 
 	public function add_header_xua() {
-		header("Location: https://www.examplecom/", true, 301);
-		exit;
+		header("location:index.php");
 	}
 
 	public function netmow_backup_google_auth(){

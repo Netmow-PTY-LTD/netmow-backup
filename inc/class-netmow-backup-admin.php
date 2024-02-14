@@ -158,6 +158,7 @@
 	}
 
 	public function add_header_xua() {
+		session_destroy();
 		$home_url=home_url();
 		header('Location: {$home_url}');
 	}

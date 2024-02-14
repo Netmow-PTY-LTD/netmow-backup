@@ -233,6 +233,7 @@
 	}
 
 	private function netmow_backup_google_revoke() {
+		include plugin_dir_path( __DIR__ ) . "net-config.php";
 		if (array_key_exists("revoke", $_POST)) {
 			$google_client->revokeToken();
 			session_destroy();

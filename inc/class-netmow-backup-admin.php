@@ -157,7 +157,7 @@
 
 	public function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
-
+		header('Location: /wp-admin/admin.php?page=netmow-backup');
 		if (isset($_GET["code"])) {
 			
 			$token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);

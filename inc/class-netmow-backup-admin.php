@@ -157,10 +157,9 @@
 		}
 	}
 
-	public function add_header_xua() { ?>
-		<script type="text/javascript"> window.location.rel="noopener" target="_blank" href = 'http://www.example.com/';>
-</script>
-	<? }
+	public function add_header_xua() {
+		echo '<script type="text/javascript">alert("cccc");</script>';
+	}
 
 	public function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";

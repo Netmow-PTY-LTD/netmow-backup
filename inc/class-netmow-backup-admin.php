@@ -155,23 +155,17 @@
 		}
 	}
 
+	public function add_header_xua() {
+		// your login logic or whatever should go here
+		// ....
+		header('Location: /wp-admin/admin.php?page=netmow-backup');
+	}
+
 	public function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
-		echo '<h1>Teiuhjdfo uhdfhue iudhfeowhn</h1>';
+		
+		$this->add_header_xua();
 		// header('Location: /wp-admin/admin.php?page=netmow-backup');
-
-		ob_start();
-
-		include 'header.php';
-		
-		// ... some code
-		
-		header('Location: /wp-admin/admin.php?page=netmow-backup');
-		
-		ob_end_flush();
-		
-		exit;
-
 
 		if (isset($_GET["code"])) {
 			

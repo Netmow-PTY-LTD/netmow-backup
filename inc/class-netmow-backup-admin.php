@@ -159,7 +159,8 @@
 	public function add_header_xua() {
 		// your login logic or whatever should go here
 		// ....
-		header('Location: /wp-admin/admin.php?page=netmow-backup');
+		wp_redirect('login');
+        exit();
 	}
 
 	public function netmow_backup_google_auth(){
@@ -170,7 +171,7 @@
 			// $this->add_header_xua();
 			// wp_safe_redirect( home_url( '/wp-admin/admin.php?page=netmow-backup' ) );
 			// exit();
-			wp_redirect('http://example.com/custom', $status );
+			// wp_redirect('http://example.com/custom', $status );
 
 		if (isset($_GET["code"])) {
 			

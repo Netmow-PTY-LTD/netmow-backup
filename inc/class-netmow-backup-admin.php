@@ -158,10 +158,7 @@
 	}
 
 	public function add_header_xua() {
-		// your login logic or whatever should go here
-		// ....
-		wp_redirect('login');
-        exit();
+		/header('Location: /test');
 	}
 
 	public function netmow_backup_google_auth(){

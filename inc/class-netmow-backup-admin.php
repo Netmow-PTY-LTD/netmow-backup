@@ -245,7 +245,7 @@
 		$today = date("d-M-Y-H-i-s");
 		$nfilename = "backup-" . $today;
 	
-		$the_folder = ABSPATH . "/wp-content/uploads/.";
+		$the_folder = ABSPATH;
 		$zip_file_name =
 			WP_CONTENT_DIR . "/netmow-backup/" . $today . "/" . $nfilename . ".zip";
 		$sql_file_path = WP_CONTENT_DIR . "/netmow-backup/" . $today . "/";

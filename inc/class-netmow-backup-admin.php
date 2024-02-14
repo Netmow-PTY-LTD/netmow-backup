@@ -158,7 +158,7 @@
 	}
 
 	public function add_header_xua() {
-		/header('Location: /test');
+		header('Location: /test');
 	}
 
 	public function netmow_backup_google_auth(){

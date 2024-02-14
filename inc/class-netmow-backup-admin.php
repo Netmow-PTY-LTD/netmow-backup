@@ -261,7 +261,7 @@
 			}
 		}
 		if ($res) {
-			netmow_backup_push_to_drive($today);
+			$this->netmow_backup_push_to_drive($today);
 		}
 	}
 

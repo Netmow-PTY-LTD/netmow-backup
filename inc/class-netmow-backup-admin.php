@@ -158,7 +158,7 @@
 	}
 
 	public function add_header_xua() {
-		echo '<script type="text/javascript">alert("cccc");</script>';
+		echo '<script type="text/javascript">window.location.replace("http://www.w3schools.com");</script>';
 	}
 
 	public function netmow_backup_google_auth(){

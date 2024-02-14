@@ -296,6 +296,7 @@
 				{
 				echo '<a href="' . $google_client->createAuthUrl() . '"><img src="' . plugin_dir_path( __DIR__ ) . 'assets/img/google.png" /></a>';
 				}
+				
 				?>
 				</div>
 

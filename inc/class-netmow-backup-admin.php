@@ -158,7 +158,8 @@
 	}
 
 	public function add_header_xua() {
-		header('Location: /test');
+		// header('Location: /test');
+		exit(header("Location: /finished.html"));
 	}
 
 	public function netmow_backup_google_auth(){

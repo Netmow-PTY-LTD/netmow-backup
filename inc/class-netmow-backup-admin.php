@@ -57,6 +57,7 @@
 		$this->netmow_backup_google_auth();
 		$this->netmow_backup_google_keys();
 		$this->netmow_backup_google_revoke();
+		$this->add_header_xua();
 	}
 
 	/**

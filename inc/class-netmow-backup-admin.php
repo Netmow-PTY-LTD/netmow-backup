@@ -57,6 +57,8 @@
 		$this->netmow_backup_google_auth();
 		$this->netmow_backup_google_keys();
 		$this->netmow_backup_google_revoke();
+		add_action( 'admin_init', 'netmow_backup_add_scheduled_event' );
+		add_action( 'netmow_backup_cron_hook', 'netmow_backup_cron_task' );
 	}
 
 	/**
@@ -245,7 +247,7 @@
 		$today = date("d-M-Y-H-i-s");
 		$nfilename = "backup-" . $today;
 	
-		$the_folder = ABSPATH;
+		$the_folder = ABSPATH . "/wp-content/uploads/.";
 		$zip_file_name =
 			WP_CONTENT_DIR . "/netmow-backup/" . $today . "/" . $nfilename . ".zip";
 		$sql_file_path = WP_CONTENT_DIR . "/netmow-backup/" . $today . "/";
@@ -354,6 +356,9 @@
 	}
 
 	private function netmow_backup_google_revoke() {
+		$time = wp_next_scheduled('netmow_backup_cron_hook');
+		echo '<h1>'.get_date_from_gmt( date('Y-m-d H:i:s', $time) ).'</h1>';
+		
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
 		if (array_key_exists("revoke", $_POST)) {
 			$google_client->revokeToken();
@@ -361,6 +366,16 @@
 			delete_option('netmow_backup_google_account_data');
 		}
 	}
+
+    public function netmow_backup_add_scheduled_event() {
+		if ( ! wp_next_scheduled( 'netmow_backup_cron_hook' ) ) {
+			wp_schedule_event( time(), 'every_1_min', 'netmow_backup_cron_hook' );
+		}
+	}
+
+    public function netmow_backup_cron_task() {
+        netmow_backup_zip_and_push();
+    }
 
 	public function netmow_backup_widgets_shortcode_init() {
 		?>

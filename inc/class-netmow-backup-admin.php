@@ -56,6 +56,7 @@
 		$this->netmow_backup_create_backup();
 		$this->netmow_backup_google_auth();
 		$this->netmow_backup_google_keys();
+		$this->netmow_backup_google_revoke();
 	}
 
 	/**
@@ -228,6 +229,14 @@
 				);
 			//entering data into options table
 			update_option( 'netmow_google_keys', $data );
+		}
+	}
+
+	private function netmow_backup_google_revoke() {
+		if (array_key_exists("revoke", $_POST)) {
+			$google_client->revokeToken();
+			session_destroy();
+			delete_option('netmow_backup_google_account_data');
 		}
 	}
 

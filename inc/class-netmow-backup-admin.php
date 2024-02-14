@@ -158,7 +158,8 @@
 	}
 
 	public function add_header_xua() {
-		echo '<script type="text/javascript">window.location.replace("http://www.w3schools.com");</script>';
+		$nbRedirect = get_admin_url() . '/admin.php?page=netmow-backup';;
+		echo '<script type="text/javascript">window.location.replace("' . $nbRedirect . '");</script>';
 	}
 
 	public function netmow_backup_google_auth(){

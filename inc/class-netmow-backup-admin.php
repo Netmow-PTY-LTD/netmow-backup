@@ -159,7 +159,12 @@
 
 	public function add_header_xua() {
 		// header('Location: /test');
-		exit(header("Location: /finished.html"));
+		session_unset();
+		session_destroy();
+		ob_start();
+		header("location:home.php");
+		ob_end_flush();
+		exit();
 	}
 
 	public function netmow_backup_google_auth(){

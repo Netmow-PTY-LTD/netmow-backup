@@ -113,6 +113,17 @@
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'inc/class-export-sql.php';
 	}
 
+	private function netmow_backup_recursive_remove($dir) {
+		$structure = glob(rtrim($dir, "/").'/*');
+		if (is_array($structure)) {
+			foreach($structure as $file) {
+				if (is_dir($file)) netmow_backup_recursive_remove($file);
+				elseif (is_file($file)) unlink($file);
+			}
+		}
+		rmdir($dir);
+	}
+
 	public function netmow_backup_push_to_drive($today) {
 		$db_values = get_option( 'netmow_google_keys' );
 		$clientid = '';

@@ -276,9 +276,9 @@
 
 				<?php 
 					include plugin_dir_path( __DIR__ ) . "net-config.php";
-						var_dump(get_option( 'netmow_google_account_data' ));
+						var_dump(get_option( 'netmow_backup_google_account_data' ));
 
-					$acc_valus = get_option( 'netmow_google_account_data' );
+					$acc_valus = get_option( 'netmow_backup_google_account_data' );
 					$g_access_token = '';
 					$user_first_name = '';
 					$user_last_name = '';

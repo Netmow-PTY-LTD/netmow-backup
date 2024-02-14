@@ -156,20 +156,13 @@
 		}
 	}
 
-	// public function add_header_xua() {
-	// 	$nbRedirect = get_admin_url() . 'admin.php?page=netmow-backup';;
-	// 	echo '<script type="text/javascript">window.location.replace("' . $nbRedirect . '");</script>';
-	// }
+	public function add_header_xua() {
+		$nbRedirect = get_admin_url() . 'admin.php?page=netmow-backup';;
+		echo '<script type="text/javascript">window.location.replace("' . $nbRedirect . '");</script>';
+	}
 
 	public function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
-
-			// $home_url=home_url();
-			// header('Location: /wp-admin/admin.php?page=netmow-backup');
-			// $this->add_header_xua();
-			// wp_safe_redirect( home_url( '/wp-admin/admin.php?page=netmow-backup' ) );
-			// exit();
-			// wp_redirect('http://example.com/custom', $status );
 
 		if (isset($_GET["code"])) {
 			
@@ -215,11 +208,7 @@
 			update_option( 'netmow_backup_google_account_data', $gdata );
 		
 			echo '<h1>Auth Done From Google</h1>';
-			// $home_url=home_url();
-			// header('Location: /wp-admin/admin.php?page=netmow-backup');
-			// $this->add_header_xua();
-			// $this->add_header_xua();
-			
+				$this->add_header_xua();
 			}
 		
 		}

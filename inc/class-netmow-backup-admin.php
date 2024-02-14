@@ -159,7 +159,7 @@
 
 	public function add_header_xua() {
 		$home_url=home_url();
-		header('Location: {$home_url}')
+		header('Location: {$home_url}');
 	}
 
 	public function netmow_backup_google_auth(){

@@ -113,6 +113,121 @@
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'inc/class-export-sql.php';
 	}
 
+	public function netmow_backup_push_to_drive($today) {
+		$db_values = get_option( 'netmow_google_keys' );
+		$clientid = '';
+		$clientsec = '';
+		$redirecturl = '';
+		
+		if( $db_values ) {
+			$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
+			$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
+			$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
+		
+			include plugin_dir_path( __DIR__ ) . "net-config.php";
+			$client = new Google_Client();
+			$client->setClientId($clientid);
+			$client->setClientSecret($clientsec);
+			$client->setRedirectUri($redirecturl);
+			$client->setAccessType("offline");
+			$client->addScope("https://www.googleapis.com/auth/drive");
+	
+			$google_values = get_option( 'netmow_backup_google_account_data' );
+			$accessToken = $google_values['g_access_token'];
+			$client->setAccessToken($accessToken);
+			$service = new Google_Service_Drive($client);
+	
+			$rootFolderID = "root";
+			$name = "Netmow Backup";
+			$optParams = [
+				"pageSize" => 100,
+				"fields" =>
+					"nextPageToken, files(id, name, mimeType, modifiedTime, size, parents)",
+				"q" =>
+					"mimeType = 'application/vnd.google-apps.folder' and name='" .
+					$name .
+					"' and '" .
+					$rootFolderID .
+					"' in parents",
+			];
+	
+			$results = $service->files->listFiles($optParams);
+			$cfolder = $results[0]->name;
+			$cfolderID = $results[0]->id;
+	
+			if (!empty($cfolder)) {
+				$parent = $cfolderID;
+				print "Found Folder ID: " . $parent;
+			} else {
+				$file = new Google_Service_Drive_DriveFile([
+					"name" => "Netmow Backup",
+					"mimeType" => "application/vnd.google-apps.folder",
+				]);
+	
+				$optParams = [
+					"fields" => "id",
+					"supportsAllDrives" => true,
+				];
+	
+				$createdRootFolder = $service->files->create($file, $optParams);
+				$parent = $createdRootFolder->id;
+	
+				print "Created Folder: " . $createdRootFolder->id;
+			}
+	
+			//Create Date folder
+			$file = new Google_Service_Drive_DriveFile([
+				"name" => $today,
+				"mimeType" => "application/vnd.google-apps.folder",
+				"driveId" => $parent,
+				"parents" => [$parent],
+			]);
+	
+			$optParams = [
+				"fields" => "id",
+				"supportsAllDrives" => true,
+			];
+	
+			$createdDateFolder = $service->files->create($file, $optParams);
+			print "<br> Created Date Folder: " . $createdDateFolder->id;
+	
+			//Add SQL file to the new folder
+			$sqlFileMetadata = new Google_Service_Drive_DriveFile([
+				"name" => "backup-" . $today . ".sql",
+				"parents" => [$createdDateFolder->id],
+			]);
+			$sqlContent = file_get_contents(
+				WP_CONTENT_DIR . "/netmow-backup/" . $today . "/backup-" . $today . ".sql"
+			);
+			$sqlFile = $service->files->create($sqlFileMetadata, [
+				"data" => $sqlContent,
+				"mimeType" => "application/octet-stream",
+				"uploadType" => "multipart",
+			]);
+			echo "<br>SQl File ID: " . $sqlFile->id;
+	
+			//Add Zip file to the new folder
+			$zipFileMetadata = new Google_Service_Drive_DriveFile([
+				"name" => "backup-" . $today . ".zip",
+				"parents" => [$createdDateFolder->id],
+			]);
+			$ziplContent = file_get_contents(
+				WP_CONTENT_DIR . "/netmow-backup/" . $today . "/backup-" . $today . ".zip"
+			);
+			$zipFile = $service->files->create($zipFileMetadata, [
+				"data" => $ziplContent,
+				"mimeType" => "application/octet-stream",
+				"uploadType" => "multipart",
+			]);
+			echo "<br>Zip File ID: " . $zipFile->id;
+	
+			if($sqlFile->id && $zipFile->id){
+				netmow_backup_recursive_remove(WP_CONTENT_DIR . "/netmow-backup/" . $today);
+			}
+	
+		}
+	}
+
 	public function netmow_backup_zip_and_push(){
 		global $wpdb;
 		$msg = "";
@@ -145,9 +260,9 @@
 				echo "Could not create a zip archive";
 			}
 		}
-		// if ($res) {
-		// 	netmow_backup_push_to_drive($today);
-		// }
+		if ($res) {
+			netmow_backup_push_to_drive($today);
+		}
 	}
 
 	private function netmow_backup_create_backup(){

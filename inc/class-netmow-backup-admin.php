@@ -158,8 +158,8 @@
 	}
 
 	public function add_header_xua() {
-        wp_redirect(admin_url('/admin.php?page=theme_options', 'http'), 301);
-        exit;
+		$home_url=home_url();
+		header('Location: {$home_url}')
 	}
 
 	public function netmow_backup_google_auth(){

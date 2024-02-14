@@ -211,8 +211,9 @@
 			update_option( 'netmow_backup_google_account_data', $gdata );
 		
 			echo '<h1>Auth Done From Google</h1>';
-			$home_url=home_url();
-			header('Location: /wp-admin/admin.php?page=netmow-backup');
+			// $home_url=home_url();
+			// header('Location: /wp-admin/admin.php?page=netmow-backup');
+			$this->add_header_xua();
 		
 			}
 		

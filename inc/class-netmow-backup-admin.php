@@ -58,7 +58,8 @@
 		$this->netmow_backup_google_keys();
 		$this->netmow_backup_google_revoke();
 		add_filter( 'cron_schedules', 'netmow_backup_add_cron_schedules' );
-		add_action( 'admin_init', 'netmow_backup_add_scheduled_event' );
+		$this->netmow_backup_add_scheduled_event();
+		// add_action( 'admin_init', 'netmow_backup_add_scheduled_event' );
 		add_action( 'netmow_backup_cron_hook', 'netmow_backup_cron_task' );
 	}
 

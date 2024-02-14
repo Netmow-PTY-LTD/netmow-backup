@@ -157,7 +157,6 @@
 
 	private function netmow_backup_google_auth(){
 		include plugin_dir_path( __DIR__ ) . "net-config.php";
-		// require_once plugin_dir_path( __FILE__ ) . 'inc/class-init-netmow-backup-core.php';
 
 		if (isset($_GET["code"])) {
 			
@@ -202,7 +201,7 @@
 			//entering data into options table
 			update_option( 'netmow_backup_google_account_data', $gdata );
 		
-			// echo '<h1>Auth Done From Google</h1>';
+			echo '<h1>Auth Done From Google</h1>';
 			$home_url=home_url();
 			header('Location: /wp-admin/admin.php?page=netmow-backup');
 		

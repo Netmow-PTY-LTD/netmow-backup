@@ -97,6 +97,10 @@
 
 	}
 
+	public function netmow_backup_add_admin_pages() {
+        add_menu_page(__('Netmow Backup'), __('Netmow Backup'), 'manage_options', 'netmow-backup', [$this, 'netmow_backup_widgets_shortcode_init'], plugin_dir_url( __DIR__ ).'/assets/img/netmow-backup.png' );
+	}
+
 	public function netmow_backup_jquery_library_check_init(){    
 	    if ( ! wp_script_is( 'jquery', 'enqueued' )) {
             //Enqueue

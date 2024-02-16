@@ -22,9 +22,9 @@
 
 class Netmow_backup_page_template {
 
-	public function netmow_backup_add_admin_pages() {
-        add_menu_page(__('Netmow Backup'), __('Netmow Backup'), 'manage_options', 'netmow-backup', [$this, 'netmow_backup_widgets_shortcode_init'], plugin_dir_url( __DIR__ ).'/assets/img/netmow-backup.png' );
-	}
+	// public function netmow_backup_add_admin_pages() {
+    //     add_menu_page(__('Netmow Backup'), __('Netmow Backup'), 'manage_options', 'netmow-backup', [$this, 'netmow_backup_widgets_shortcode_init'], plugin_dir_url( __DIR__ ).'/assets/img/netmow-backup.png' );
+	// }
 
 	public function netmow_backup_widgets_shortcode_init() {
 		?>

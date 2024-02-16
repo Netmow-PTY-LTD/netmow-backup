@@ -20,9 +20,9 @@
  * @author     Netmow <pranto@netmow.com>
  */
 
-// echo '<h1>his class defines all code necessary to run during the plugi</h1>';
-class Netmow_backup_export_SQL
-{
+ 
+class Netmow_backup_export_SQL {
+
     public function netmow_backup_export($the_folder, $config, $nfilename, $tables = "*")
     {
         $host = $config["host"];

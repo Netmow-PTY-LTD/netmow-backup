@@ -66,11 +66,6 @@ class Netmow_backup_features_init {
 
 		$this->loader = new Netmow_backup_loader_init();
 
-		/**
-		 * The class responsible for admin page template
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'inc/class-page-template.php';
-
 	}
 
 	/**

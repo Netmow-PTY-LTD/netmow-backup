@@ -159,3 +159,17 @@
 	line-height: 1;
 	cursor: pointer;
 }
+.nb-data-wrap {
+	display: flex;
+}
+.nb-data-left {
+	width: 50%;
+}
+.nb-data-right {
+	width: 50%;
+	min-height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-left: 1px dashed #b7b7b7;
+}

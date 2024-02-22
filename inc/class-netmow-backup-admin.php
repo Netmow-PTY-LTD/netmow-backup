@@ -464,32 +464,34 @@
 						<div class="nb-data-wrap">
 							<div class="nb-data-left">
 								<h2 class="nb-widget-title">Latest Backups</h2>
-								<div class="nb-data-line nb-data-line-b">
-									<span class="nbdl-t1">Time</span>
-									<span class="nbdl-t2">Status</span>
-								</div>
-								<div class="nb-data-line">
-									<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-									<span class="nbdl-t2">Done</span>
-								</div>
-								<div class="nb-data-line">
-									<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-									<span class="nbdl-t2">Done</span>
-								</div>
-								<div class="nb-data-line">
-									<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-									<span class="nbdl-t2">Done</span>
-								</div>
-								<div class="nb-data-line">
-									<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-									<span class="nbdl-t2">Done</span>
-								</div>
-								<div class="nb-data-line">
-									<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-									<span class="nbdl-t2">Done</span>
+								<div class="nb-data-items">
+									<div class="nb-data-line nb-data-line-b">
+										<span class="nbdl-t1">Time</span>
+										<span class="nbdl-t2">Status</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
 								</div>
 							</div>
-							<div class="nb-data-left">
+							<div class="nb-data-right">
 								<form id="ajaxformid" action="#" method="POST" class="nb-backup-now">
 									<input type="submit" id="inviaForm" value="Backup Now" name="Submit1">
 								</form>

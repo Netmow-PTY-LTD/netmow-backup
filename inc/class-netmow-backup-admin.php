@@ -49,6 +49,7 @@
 	 * @param      string    $plugin_version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $plugin_version ) {
+
 		$this->plugin_name = $plugin_name;
 		$this->plugin_version = $plugin_version;
 		$this->netmow_backup_load_zip_classes();

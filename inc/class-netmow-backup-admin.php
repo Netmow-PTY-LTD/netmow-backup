@@ -433,7 +433,7 @@
 							</div>
 						</div>
 					</div>
-					<?php if(!empty($clientid)) { ?>
+					<?php if(!empty($clientid) && !empty($clientsec) && !empty($redirecturl)) { ?>
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google Account</h2>
 						<div class="nb-widget-body">

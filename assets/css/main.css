@@ -13,6 +13,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 25px;
+	border-bottom: 2px solid #6bbd45;
 }
 .nb-header-left {
 	display: flex;
@@ -212,4 +213,15 @@
 }
 .nb-data-line.nb-data-line-b .nbdl-t2 {
 	color: #000;
+}
+.nb-login-google {
+	width: 290px;
+}
+.nb-login-google a {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+.nb-login-google a img {
+	max-width: 100%;
 }

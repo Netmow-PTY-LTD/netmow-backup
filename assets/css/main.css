@@ -68,7 +68,7 @@
 	margin-top: 0;
 	font-size: 17px;
 	line-height: 1.2;
-	margin-bottom: 12px;
+	margin-bottom: 15px;
 }
 .nb-widget {
 	padding: 25px;
@@ -76,4 +76,86 @@
 }
 .nb-widget:not(:last-child) {
 	margin-bottom: 20px;
+}
+.nb-widget-inputs form {
+	display: flex;
+	flex-direction: column;
+}
+.nb-widget-inputs form label {
+	display: flex;
+	align-items: center;
+}
+.nb-widget-inputs form label span {
+	width: 200px;
+}
+.nb-widget-inputs form label:not(:last-child) {
+	margin-bottom: 15px;
+}
+.nb-widget-inputs form label input {
+	width: 605px;
+	max-width: 100%;
+}
+.nb-widget-inputs form input[type="submit"] {
+	height: 35px;
+	border-radius: 0;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: #1ba94b;
+	color: #fff;
+	font-size: 17px;
+	margin-top: 10px;
+	width: max-content;
+	padding: 0 34px;
+}
+.nb-profile-info {
+	display: flex;
+	align-items: center;
+	column-gap: 15px;
+}
+.nb-avatar {
+	width: 108px;
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+.nb-avatar {
+	width: 115px;
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	background-color: #efefef;
+}
+.nb-avatar img {
+	width: 100%;
+}
+.nb-info-items {
+	display: flex;
+	align-items: flex-start;
+	font-size: 14px;
+	line-height: 1.2;
+}
+.nb-info-s {
+	width: 55px;
+	flex-shrink: 0;
+	font-weight: 500;
+	color: #000;
+}
+.nb-info-items:not(:last-child) {
+	margin-bottom: 8px;
+}
+.nb-revoke-button {
+	margin-top: 14px;
+}
+.nb-revoke-button input[type="submit"] {
+	width: 100px;
+	height: 35px;
+	padding: 0;
+	border: none;
+	outline: none;
+	font-weight: 500;
+	background-color: #eaeaea;
+	font-size: 14px;
+	line-height: 1;
+	cursor: pointer;
 }

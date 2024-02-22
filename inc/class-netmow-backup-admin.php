@@ -385,25 +385,39 @@
 			<div class="nb-page-content">
 				<div class="nb-body-wrap">
 					<div class="nb-widget">
-						<h2 class="nb-widget-title">Google API</h2>
-						<div class="nb-widget-body">
-							<div class="nb-widget-inputs">
-								<?php 
-									$db_values = get_option( 'netmow_google_keys' );
-									$clientid = '';
-									$clientsec = '';
-									$redirecturl = '';
-									if( $db_values ) {
-										$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
-										$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
-										$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
-									}
-								?>
-								<form method="post">
-									<label><span>Client ID:</span> <input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>"></label>
-									<label><span>Client secret:</span> <input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>"></label>
-									<label><span>Authorised redirect URI:</span> <input type="text" name="redirecturl" value="<?php echo !empty($redirecturl) ? $redirecturl : $redirecturl; ?>"></label>
-									<input type="submit" name="x_submit" value="Add">
+						<div class="nb-data-wrap">
+							<div class="nb-data-left">
+								<h2 class="nb-widget-title">Latest Backups</h2>
+								<div class="nb-data-items">
+									<div class="nb-data-line nb-data-line-b">
+										<span class="nbdl-t1">Time</span>
+										<span class="nbdl-t2">Status</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+									<div class="nb-data-line">
+										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+										<span class="nbdl-t2">Done</span>
+									</div>
+								</div>
+							</div>
+							<div class="nb-data-right">
+								<form id="ajaxformid" action="#" method="POST" class="nb-backup-now">
+									<input type="submit" id="inviaForm" value="Backup Now" name="Submit1">
 								</form>
 							</div>
 						</div>
@@ -461,39 +475,25 @@
 						</div>
 					</div>
 					<div class="nb-widget">
-						<div class="nb-data-wrap">
-							<div class="nb-data-left">
-								<h2 class="nb-widget-title">Latest Backups</h2>
-								<div class="nb-data-items">
-									<div class="nb-data-line nb-data-line-b">
-										<span class="nbdl-t1">Time</span>
-										<span class="nbdl-t2">Status</span>
-									</div>
-									<div class="nb-data-line">
-										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-										<span class="nbdl-t2">Done</span>
-									</div>
-									<div class="nb-data-line">
-										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-										<span class="nbdl-t2">Done</span>
-									</div>
-									<div class="nb-data-line">
-										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-										<span class="nbdl-t2">Done</span>
-									</div>
-									<div class="nb-data-line">
-										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-										<span class="nbdl-t2">Done</span>
-									</div>
-									<div class="nb-data-line">
-										<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
-										<span class="nbdl-t2">Done</span>
-									</div>
-								</div>
-							</div>
-							<div class="nb-data-right">
-								<form id="ajaxformid" action="#" method="POST" class="nb-backup-now">
-									<input type="submit" id="inviaForm" value="Backup Now" name="Submit1">
+						<h2 class="nb-widget-title">Google API</h2>
+						<div class="nb-widget-body">
+							<div class="nb-widget-inputs">
+								<?php 
+									$db_values = get_option( 'netmow_google_keys' );
+									$clientid = '';
+									$clientsec = '';
+									$redirecturl = '';
+									if( $db_values ) {
+										$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
+										$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
+										$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
+									}
+								?>
+								<form method="post">
+									<label><span>Client ID:</span> <input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>"></label>
+									<label><span>Client secret:</span> <input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>"></label>
+									<label><span>Authorised redirect URI:</span> <input type="text" name="redirecturl" value="<?php echo !empty($redirecturl) ? $redirecturl : $redirecturl; ?>"></label>
+									<input type="submit" name="x_submit" value="Add">
 								</form>
 							</div>
 						</div>

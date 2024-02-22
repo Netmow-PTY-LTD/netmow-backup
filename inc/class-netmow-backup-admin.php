@@ -135,7 +135,7 @@
 			$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
 			$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
 		
-			include plugin_dir_path( __DIR__ ) . "net-config.php";
+			require_once WP_PLUGIN_DIR . '/netmow-backup/google-api-php-client/vendor/autoload.php';
 			$client = new Google_Client();
 			$client->setClientId($clientid);
 			$client->setClientSecret($clientsec);
@@ -168,7 +168,7 @@
 	
 			if (!empty($cfolder)) {
 				$parent = $cfolderID;
-				// print "Found Folder ID: " . $parent;
+				print "Found Folder ID: " . $parent;
 			} else {
 				$file = new Google_Service_Drive_DriveFile([
 					"name" => "Netmow Backup",

@@ -173,3 +173,32 @@
 	justify-content: center;
 	border-left: 1px dashed #b7b7b7;
 }
+.nb-data-line {
+	display: flex;
+	align-items: flex-start;
+}
+.nbdl-t1 {
+	width: calc(100% - 100px);
+}
+.nbdl-t2 {
+	width: 100px;
+	flex-shrink: 0;
+}
+.nb-data-line:not(:last-child) {
+	margin-bottom: 10px;
+}
+.nb-data-line.nb-data-line-b {
+	font-weight: 600;
+	color: #000;
+}
+.nb-data-right input[type="submit"] {
+	background-color: #1ba94b;
+	border: none;
+	outline: none;
+	color: #fff;
+	width: 200px;
+	height: 50px;
+	font-size: 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+}

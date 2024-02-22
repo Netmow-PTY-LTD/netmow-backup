@@ -363,85 +363,131 @@
 		}
 	}
 
-	public function netmow_backup_widgets_shortcode_init() {
-		?>
-			<div class=""></div>
+	public function netmow_backup_widgets_shortcode_init() { ?>
 
-
-			<div class="miyn-app-wrapper">
-				<div class="miyn-app-content-wrapper">
-					<div class="miyn-app-content-area">
-							My backup Plugins	
+		<div class="nb-page-wrapper">
+			<div class="nb-page-content">
+				<div class="nb-header">
+					<div class="nb-header-left">
+						<img src="<?php echo plugin_dir_url( __DIR__ ).'/assets/img/netmow-backup.png'; ?>" alt="Logo">
+						<span>Netmow Backup - Auto Backup To Google Drive</span>
+					</div>
+					<div class="nb-header-right">
+						<a href="#" class="nb-btn">
+							<div class="icon">
+								<svg width="2rem" height="2.8rem" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M19.7 7.3L12.7 0.3C12.5 0.0999999 12.3 0 12 0H2C0.9 0 0 0.9 0 2V26C0 27.1 0.9 28 2 28H18C19.1 28 20 27.1 20 26V8C20 7.7 19.9 7.5 19.7 7.3ZM12 2.4L17.6 8H12V2.4ZM18 26H2V2H10V8C10 9.1 10.9 10 12 10H18V26Z" fill="#15A74A"/>
+								</svg>
+							</div>
+							<span>Documentation</span>
+						</a>
 					</div>
 				</div>
-				<div class="miyn-app-sidebar">
-					<form id="ajaxformid" action="#" method="POST">
-						<input type="submit" id="inviaForm" value="Send" name="Submit1">
-					</form>
+				<div class="nb-body-wrap">
+					<div class="nb-widget">
+						<h2 class="nb-widget-title">Google API</h2>
+						<div class="nb-widget-body">
+							<div class="nb-widget-inputs">
+								<?php 
+									$db_values = get_option( 'netmow_google_keys' );
+									$clientid = '';
+									$clientsec = '';
+									$redirecturl = '';
+									if( $db_values ) {
+										$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
+										$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
+										$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
+									}
+								?>
+								<form method="post">
+									<label><span>Client ID</span> <input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>"></label><br>
+									<label><span>Client secret</span> <input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>"></label><br>
+									<label><span>Authorised redirect URI</span> <input type="text" name="redirecturl" value="<?php echo !empty($redirecturl) ? $redirecturl : $redirecturl; ?>"></label><br>
+									<input type="submit" name="x_submit" value="Add">
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="nb-widget">
+						<h2 class="nb-widget-title">Google Account</h2>
+						<div class="nb-widget-body">
+							<div class="nb-profile-area">
+							<?php 
+								include plugin_dir_path( __DIR__ ) . "net-config.php";
+
+								$acc_valus = get_option( 'netmow_backup_google_account_data' );
+								$g_access_token = '';
+								$user_first_name = '';
+								$user_last_name = '';
+								$user_email_address = '';
+								$user_image = '';
+								if( $acc_valus ) {
+									$g_access_token = $acc_valus['g_access_token'] ? $acc_valus['g_access_token'] : '';
+									$user_first_name = $acc_valus['user_first_name'] ? $acc_valus['user_first_name'] : '';
+									$user_last_name = $acc_valus['user_last_name'] ? $acc_valus['user_last_name'] : '';
+									$user_email_address = $acc_valus['user_email_address'] ? $acc_valus['user_email_address'] : '';
+									$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
+								}
+
+								if(!empty($g_access_token)) { ?>
+								<div class="nb-profile-info">
+									<div class="nb-avatar">
+										<img src="<?php echo $user_image; ?>" alt="<?php echo $user_first_name; ?>">
+									</div>
+									<div class="nb-info">
+										<div class="nb-info-items">
+											<div class="nb-info-s">Name</div>
+											<div class="nb-info-m"><?php echo $user_first_name.' '.$user_last_name.; ?></div>
+										</div>
+										<div class="nb-info-items">
+											<div class="nb-info-s">Email</div>
+											<div class="nb-info-m"><?php echo $user_email_address; ?></div>
+										</div>
+										<div class="nb-revoke-button">
+											<form method="post">
+												<input type="submit" name="revoke" id="revoke" value="Logout" >
+											</form>
+										</div>
+									</div>
+								</div>
+								<?php }else{ ?>
+								<div class="nb-login-google">
+									<a href="<?php echo $google_client->createAuthUrl(); ?>">
+										<img src="<?php echo plugin_dir_url( __DIR__ ) . 'assets/img/google.png'; ?>" alt="Login With Goolgle">
+									</a>
+								</div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+					<div class="nb-widget">
+						<div class="nb-data-wrap">
+							<div class="nb-data-left">
+								<h2 class="db-data-title">Latest Backups</h2>
+								<div class="nb-data-line nb-data-line-b">
+									<span class="nbdl-t1">Time</span>
+									<span class="nbdl-t2">Status</span>
+								</div>
+								<div class="nb-data-line">
+									<span class="nbdl-t1">22-Feb-2024-02-35-22</span>
+									<span class="nbdl-t2">Done</span>
+								</div>
+							</div>
+							<div class="nb-data-left">
+								<form id="ajaxformid" action="#" method="POST" class="nb-backup-now">
+									<input type="submit" id="inviaForm" value="Backup Now" name="Submit1">
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<?php 
-				$db_values = get_option( 'netmow_google_keys' );
-				$clientid = '';
-				$clientsec = '';
-				$redirecturl = '';
-				if( $db_values ) {
-					$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
-					$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
-					$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
-				}
-			?>
-			<div class="api-inputs">
-				<form method="post">
-					<label>Client ID <input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>"></label><br>
-					<label>Client secret <input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>"></label><br>
-					<label>Authorised redirect URI <input type="text" name="redirecturl" value="<?php echo !empty($redirecturl) ? $redirecturl : $redirecturl; ?>"></label><br>
-					<input type="submit" name="x_submit" value="Submit">
-				</form>
-			</div>
-
-			<div class="api-auth" style="padding: 20px;margin-top: 20px;background-color: #fff">
-				<h2>Google Account</h2>
-				<div class="panel panel-default">
-
-				<?php 
-					include plugin_dir_path( __DIR__ ) . "net-config.php";
-
-					$acc_valus = get_option( 'netmow_backup_google_account_data' );
-					$g_access_token = '';
-					$user_first_name = '';
-					$user_last_name = '';
-					$user_email_address = '';
-					$user_image = '';
-					if( $acc_valus ) {
-						$g_access_token = $acc_valus['g_access_token'] ? $acc_valus['g_access_token'] : '';
-						$user_first_name = $acc_valus['user_first_name'] ? $acc_valus['user_first_name'] : '';
-						$user_last_name = $acc_valus['user_last_name'] ? $acc_valus['user_last_name'] : '';
-						$user_email_address = $acc_valus['user_email_address'] ? $acc_valus['user_email_address'] : '';
-						$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
-					}
-				?>
-
-				<?php
-				if(!empty($g_access_token))
-				{
-					echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-					echo '<img src="'.$user_image.'" class="img-responsive img-circle img-thumbnail" />';
-					echo '<h3><b>Name :</b> '.$user_first_name.' '.$user_last_name.'</h3>';
-					echo '<h3><b>Email :</b> '.$user_email_address.'</h3>';
-					echo '<form method="post">';
-					echo '<input type="submit" name="revoke" id="revoke" value="Logout" >';
-					echo '</form>';
-				}
-				else
-				{
-				echo '<a href="' . $google_client->createAuthUrl() . '"><img src="' . plugin_dir_url( __DIR__ ) . 'assets/img/google.png" /></a>';
-				}
-
-				?>
+			<div class="nb-sidebar">
+				<div class="nb-sidebar-widget">
+					<img src="<?php echo plugin_dir_url( __DIR__ ).'/assets/img/wp.jpg'; ?>" alt="Youtube">
 				</div>
-
 			</div>
+		</div>
 
 		<?php
 	}

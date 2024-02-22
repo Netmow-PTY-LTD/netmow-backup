@@ -433,7 +433,7 @@
 							</div>
 						</div>
 					</div>
-					<?php if( $db_values ) { ?>
+					<?php if(!empty($clientid)) { ?>
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google Account</h2>
 						<div class="nb-widget-body">

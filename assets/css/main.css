@@ -12,7 +12,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 40px 30px;
+	padding: 25px;
 }
 .nb-header-left {
 	display: flex;
@@ -50,13 +50,30 @@
 .nb-page-content {
 	display: flex;
 	align-items: flex-start;
-	margin-top: 29px;
+	margin-top: 20px;
 }
 .nb-body-wrap {
-	width: calc(100% - 300px);
-	padding-right: 50px;
+	width: calc(100% - 400px);
+	padding-right: 20px;
 }
 .nb-sidebar {
-	width: 300px;
+	width: 400px;
 	flex-shrink: 0;
+}
+.nb-sidebar-widget {
+	background-color: #fff;
+	padding: 22px 25px 29px 25px;
+}
+.nb-widget-title {
+	margin-top: 0;
+	font-size: 17px;
+	line-height: 1.2;
+	margin-bottom: 12px;
+}
+.nb-widget {
+	padding: 25px;
+	background-color: #fff;
+}
+.nb-widget:not(:last-child) {
+	margin-bottom: 20px;
 }

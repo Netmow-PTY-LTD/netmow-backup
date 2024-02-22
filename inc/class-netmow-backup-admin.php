@@ -369,7 +369,7 @@
 			<div class="nb-header">
 				<div class="nb-header-left">
 					<img src="<?php echo plugin_dir_url( __DIR__ ).'/assets/img/netmow-backup.png'; ?>" alt="Logo">
-					<div class="nb-header-left-text">Netmow Backup - Auto Backup To Google Drive</div>
+					<div class="nb-header-left-text">Netmow Backup <span>- Auto Backup To Google Drive</span></div>
 				</div>
 				<div class="nb-header-right">
 					<a href="#" class="nb-btn">

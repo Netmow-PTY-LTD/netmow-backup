@@ -22,7 +22,7 @@
 .nb-header-left img {
 	width: 45px;
 }
-.nb-header-left span {
+.nb-header-left-text {
 	font-size: 23px;
 	color: #1ba94b;
 	font-weight: 600;
@@ -183,6 +183,7 @@
 .nbdl-t2 {
 	width: 100px;
 	flex-shrink: 0;
+	color: #1ba94b;
 }
 .nb-data-line:not(:last-child) {
 	margin-bottom: 10px;
@@ -201,4 +202,7 @@
 	font-size: 18px;
 	text-transform: uppercase;
 	cursor: pointer;
+}
+.nb-data-line.nb-data-line-b .nbdl-t2 {
+	color: #000;
 }

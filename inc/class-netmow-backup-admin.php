@@ -358,7 +358,7 @@
 
 		if (array_key_exists("revoke", $_POST)) {
 			$google_client->revokeToken();
-			session_destroy();
+			// session_destroy();
 			delete_option('netmow_backup_google_account_data');
 		}
 	}

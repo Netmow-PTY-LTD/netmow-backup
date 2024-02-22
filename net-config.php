@@ -31,7 +31,6 @@ $google_client->addScope('profile');
 
 $google_client->addScope('https://www.googleapis.com/auth/drive');
 
-//start session on web page
-session_start();
+
 
 }

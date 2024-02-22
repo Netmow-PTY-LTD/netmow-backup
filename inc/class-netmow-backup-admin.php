@@ -271,7 +271,7 @@
 			}
 		}
 		if ($res) {
-			$this->netmow_backup_push_to_drive($today);
+			// $this->netmow_backup_push_to_drive($today);
 		}
 	}
 
@@ -423,7 +423,56 @@
 					</div>
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google Account</h2>
+						<div class="nb-widget-body">
+							<div class="nb-profile-area">
+							<?php 
+								
+								include plugin_dir_path( __DIR__ ) . "net-config.php";
 
+								$acc_valus = get_option( 'netmow_backup_google_account_data' );
+								$g_access_token = '';
+								$user_first_name = '';
+								$user_last_name = '';
+								$user_email_address = '';
+								$user_image = '';
+								if( $acc_valus ) {
+									$g_access_token = $acc_valus['g_access_token'] ? $acc_valus['g_access_token'] : '';
+									$user_first_name = $acc_valus['user_first_name'] ? $acc_valus['user_first_name'] : '';
+									$user_last_name = $acc_valus['user_last_name'] ? $acc_valus['user_last_name'] : '';
+									$user_email_address = $acc_valus['user_email_address'] ? $acc_valus['user_email_address'] : '';
+									$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
+								}
+
+								if(!empty($g_access_token)) { ?>
+								<div class="nb-profile-info">
+									<div class="nb-avatar">
+										<img src="<?php echo $user_image; ?>" alt="<?php echo $user_first_name; ?>">
+									</div>
+									<div class="nb-info">
+										<div class="nb-info-items">
+											<div class="nb-info-s">Name</div>
+											<div class="nb-info-m"><?php echo $user_first_name.' '.$user_last_name; ?></div>
+										</div>
+										<div class="nb-info-items">
+											<div class="nb-info-s">Email</div>
+											<div class="nb-info-m"><?php echo $user_email_address; ?></div>
+										</div>
+										<div class="nb-revoke-button">
+											<form method="post">
+												<input type="submit" name="revoke" id="revoke" value="Logout" >
+											</form>
+										</div>
+									</div>
+								</div>
+								<?php }else{ ?>
+								<div class="nb-login-google">
+									<a href="<?php echo $google_client->createAuthUrl(); ?>">
+										<img src="<?php echo plugin_dir_url( __DIR__ ) . 'assets/img/google.png'; ?>" alt="Login With Goolgle">
+									</a>
+								</div>
+								<?php } ?>
+							</div>
+						</div>
 					</div>
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google API</h2>

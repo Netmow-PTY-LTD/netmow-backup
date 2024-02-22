@@ -2,8 +2,10 @@
 	width: 18px;
 	opacity: 1 !important;
 }
-.nb-page-content {
-	padding-top: 30px;
+.nb-page-wrapper {
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
 }
 .nb-header {
 	background-color: #fff;
@@ -40,4 +42,8 @@
 	color: #1ba94b;
 	font-weight: 500;
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.nb-btn .icon {
+	display: flex;
+	width: 16px;
 }

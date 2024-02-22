@@ -10,12 +10,7 @@ if( $db_values ) {
     $clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
     $clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
     $redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
-
-
-    
-
 require_once WP_PLUGIN_DIR . '/netmow-backup/google-api-php-client/vendor/autoload.php';
-
 
 //Make object of Google API Client for call Google API
 $google_client = new Google_Client();
@@ -36,7 +31,6 @@ $google_client->addScope('profile');
 
 $google_client->addScope('https://www.googleapis.com/auth/drive');
 
-//start session on web page
-session_start();
+
 
 }

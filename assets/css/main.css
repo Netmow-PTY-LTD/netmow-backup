@@ -2,3 +2,42 @@
 	width: 18px;
 	opacity: 1 !important;
 }
+.nb-page-content {
+	padding-top: 30px;
+}
+.nb-header {
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 40px 30px;
+}
+.nb-header-left {
+	display: flex;
+	align-items: center;
+	column-gap: 12px;
+}
+.nb-header-left img {
+	width: 45px;
+}
+.nb-header-left span {
+	font-size: 23px;
+	color: #1ba94b;
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 1.2;
+	letter-spacing: .035em;
+}
+.nb-btn {
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+	font-size: 17px;
+	line-height: 1;
+	text-decoration: none;
+	padding: 5px 28px;
+	color: #1ba94b;
+	font-weight: 500;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

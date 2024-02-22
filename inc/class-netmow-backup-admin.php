@@ -375,7 +375,7 @@
 					<a href="#" class="nb-btn">
 						<div class="icon">
 							<svg width="2rem" height="2.8rem" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M19.7 7.3L12.7 0.3C12.5 0.0999999 12.3 0 12 0H2C0.9 0 0 0.9 0 2V26C0 27.1 0.9 28 2 28H18C19.1 28 20 27.1 20 26V8C20 7.7 19.9 7.5 19.7 7.3ZM12 2.4L17.6 8H12V2.4ZM18 26H2V2H10V8C10 9.1 10.9 10 12 10H18V26Z" fill="#15A74A"/>
+							<path d="M19.7 7.3L12.7 0.3C12.5 0.0999999 12.3 0 12 0H2C0.9 0 0 0.9 0 2V26C0 27.1 0.9 28 2 28H18C19.1 28 20 27.1 20 26V8C20 7.7 19.9 7.5 19.7 7.3ZM12 2.4L17.6 8H12V2.4ZM18 26H2V2H10V8C10 9.1 10.9 10 12 10H18V26Z" fill="#1ba94b"/>
 							</svg>
 						</div>
 						<span>Documentation</span>

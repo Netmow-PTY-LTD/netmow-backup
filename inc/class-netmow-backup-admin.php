@@ -437,7 +437,7 @@
 									<div class="nb-info">
 										<div class="nb-info-items">
 											<div class="nb-info-s">Name</div>
-											<div class="nb-info-m"><?php echo $user_first_name.' '.$user_last_name.; ?></div>
+											<div class="nb-info-m"><?php echo $user_first_name.' '.$user_last_name; ?></div>
 										</div>
 										<div class="nb-info-items">
 											<div class="nb-info-s">Email</div>

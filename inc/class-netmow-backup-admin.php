@@ -168,7 +168,7 @@
 	
 			if (!empty($cfolder)) {
 				$parent = $cfolderID;
-				print "Found Folder ID: " . $parent;
+				// print "Found Folder ID: " . $parent;
 			} else {
 				$file = new Google_Service_Drive_DriveFile([
 					"name" => "Netmow Backup",

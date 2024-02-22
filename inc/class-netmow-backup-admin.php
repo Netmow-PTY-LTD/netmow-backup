@@ -483,7 +483,10 @@
 				</div>
 				<div class="nb-sidebar">
 					<div class="nb-sidebar-widget">
-						<img src="<?php echo plugin_dir_url( __DIR__ ).'/assets/img/wp.jpg'; ?>" alt="Youtube">
+						<h2 class="nb-sidebar-widget-title">User Guidelines</h2>
+						<div class="nb-sidebar-widget-yt">
+							<iframe width="350" src="https://www.youtube.com/embed/URKxXv--2Zc?si=0n1f2pH6C8ngLAKf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						</div>
 					</div>
 				</div>
 			</div>

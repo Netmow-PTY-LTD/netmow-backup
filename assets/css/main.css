@@ -47,3 +47,16 @@
 	display: flex;
 	width: 16px;
 }
+.nb-page-content {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 29px;
+}
+.nb-body-wrap {
+	width: calc(100% - 300px);
+	padding-right: 50px;
+}
+.nb-sidebar {
+	width: 300px;
+	flex-shrink: 0;
+}

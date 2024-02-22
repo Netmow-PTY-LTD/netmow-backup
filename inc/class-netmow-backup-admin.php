@@ -384,6 +384,17 @@
 			</div>
 			<div class="nb-page-content">
 				<div class="nb-body-wrap">
+					<?php 
+						$db_values = get_option( 'netmow_google_keys' );
+						$clientid = '';
+						$clientsec = '';
+						$redirecturl = '';
+						if( $db_values ) {
+							$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
+							$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
+							$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
+						}
+					?>
 					<div class="nb-widget">
 						<div class="nb-data-wrap">
 							<div class="nb-data-left">
@@ -422,6 +433,7 @@
 							</div>
 						</div>
 					</div>
+					<?php if( $db_values ) { ?>
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google Account</h2>
 						<div class="nb-widget-body">
@@ -475,21 +487,11 @@
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google API</h2>
 						<div class="nb-widget-body">
 							<div class="nb-widget-inputs">
-								<?php 
-									$db_values = get_option( 'netmow_google_keys' );
-									$clientid = '';
-									$clientsec = '';
-									$redirecturl = '';
-									if( $db_values ) {
-										$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
-										$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
-										$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
-									}
-								?>
 								<form method="post">
 									<label><span>Client ID:</span> <input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>"></label>
 									<label><span>Client secret:</span> <input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>"></label>

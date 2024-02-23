@@ -509,10 +509,9 @@
 										<input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>">
 									</label>
 									<label>
-										
 										<span>Authorised redirect URI:</span>
 										<div class="nbwi-notice-input">
-											<input type="text" name="redirecturl" value="" readonly>
+											<input type="text" name="redirecturl" value="<?php echo home_url(); ?>" readonly>
 											<div class="nbwi-notice">You need to input <strong><?php echo home_url(); ?></strong> into the <strong>Authorised redirect URIs</strong> field of your Google Cloud Project.</div>
 										</div>
 									</label>

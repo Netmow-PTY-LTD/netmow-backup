@@ -483,7 +483,7 @@
 								<?php }else{ ?>
 								<div class="nb-login-google">
 									<a href="<?php echo $google_client->createAuthUrl(); ?>">
-										<img src="<?php echo plugin_dir_url( __DIR__ ) . 'assets/img/google.png'; ?>" alt="Login With Goolgle">
+										<img src="" alt="Login With Goolgle">
 									</a>
 								</div>
 								<?php } ?>

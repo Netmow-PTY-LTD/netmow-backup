@@ -398,7 +398,7 @@
 						$authValus = get_option( 'netmow_backup_google_account_data' );
 						
 					?>
-					<?php if(!empty($authValus['g_access_token'])) { ?>
+					<?php if(!empty($clientid) && !empty($clientsec) && !empty($redirecturl) && !empty($authValus['g_access_token'])) { ?>
 					<div class="nb-widget">
 						<div class="nb-data-wrap">
 							<div class="nb-data-left">

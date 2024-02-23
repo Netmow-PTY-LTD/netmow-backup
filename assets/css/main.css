@@ -103,6 +103,13 @@
 	width: 605px;
 	max-width: 100%;
 }
+.nbwi-notice {
+	font-size: 12px;
+	line-height: 17px;
+	margin-top: 5px;
+	max-width: 500px;
+	color: #5a5d70;
+}
 .nb-widget-inputs form input[type="submit"] {
 	height: 35px;
 	border-radius: 0;

@@ -395,8 +395,8 @@
 							$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
 						}
 
-						$auth_valus = get_option( 'netmow_backup_google_account_data' );
-						$authToken  = $acc_valus['g_access_token'];
+						$authValus = get_option( 'netmow_backup_google_account_data' );
+						$authToken  = $authValus['g_access_token'];
 					?>
 					<?php if(!empty($authToken)) { ?>
 					<div class="nb-widget">

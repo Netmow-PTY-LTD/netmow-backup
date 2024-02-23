@@ -509,6 +509,7 @@
 										<input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>">
 									</label>
 									<label>
+										
 										<span>Authorised redirect URI:</span>
 										<div class="nbwi-notice-input">
 											<input type="text" name="redirecturl" value="" readonly>

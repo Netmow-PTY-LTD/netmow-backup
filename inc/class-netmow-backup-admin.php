@@ -394,8 +394,11 @@
 							$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
 							$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
 						}
+
+						$auth_valus = get_option( 'netmow_backup_google_account_data' );
+						$authToken  = $acc_valus['g_access_token'];
 					?>
-					<?php if(!empty($clientid) && !empty($clientsec) && !empty($redirecturl)) { ?>
+					<?php if(!empty($authToken)) { ?>
 					<div class="nb-widget">
 						<div class="nb-data-wrap">
 							<div class="nb-data-left">

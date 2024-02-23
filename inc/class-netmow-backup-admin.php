@@ -500,9 +500,21 @@
 						<div class="nb-widget-body">
 							<div class="nb-widget-inputs">
 								<form method="post">
-									<label><span>Client ID:</span> <input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>"></label>
-									<label><span>Client secret:</span> <input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>"></label>
-									<label><span>Authorised redirect URI:</span> <input type="text" name="redirecturl" value="<?php echo !empty($redirecturl) ? $redirecturl : $redirecturl; ?>"></label>
+									<label>
+										<span>Client ID:</span>
+										<input type="text" name="clientid" value="<?php echo !empty($clientid) ? $clientid : $clientid; ?>">
+									</label>
+									<label>
+										<span>Client secret:</span>
+										<input type="text" name="clientsec" value="<?php echo !empty($clientsec) ? $clientsec : $clientsec; ?>">
+									</label>
+									<label>
+										<span>Authorised redirect URI:</span>
+										<div class="nbwi-notice-input">
+											<input type="text" name="redirecturl" value="<?php echo home_url(); ?>">
+											<div class="nbwi-notice">You need to input <strong><?php echo home_url(); ?></strong> into the <strong>Authorised redirect URIs</strong> field of your Google Cloud Project.</div>
+										</div>
+									</label>
 									<input type="submit" name="x_submit" value="Add">
 								</form>
 							</div>

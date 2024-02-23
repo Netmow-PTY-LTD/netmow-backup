@@ -57,6 +57,7 @@
 		$this->netmow_backup_google_auth();
 		$this->netmow_backup_google_keys();
 		$this->netmow_backup_google_revoke();
+		$this->netmow_backup_cron_init();
 	}
 
 	/**
@@ -533,6 +534,33 @@
 		</div>
 
 		<?php
+	}
+
+	// CRON
+
+	public function prefix_add_cron_schedules( $schedules = array() ) {
+		$schedules['every_1_min'] = array(
+		'interval' => 30, // 600 seconds means 10 minutes.
+		'display' => __( 'Every 5 Min', 'textdomain' ),
+		);
+		return $schedules;
+	}
+
+	public function prefix_add_scheduled_event() {
+		// Schedule the event if it is not scheduled.
+		if ( ! wp_next_scheduled( 'prefix_cron_hook' ) ) {
+		wp_schedule_event( time(), 'every_1_min', 'prefix_cron_hook' );
+		}
+	}
+	
+	public function prefix_cron_task() {
+		$this->netmow_backup_zip_and_push();
+	}
+
+	public function netmow_backup_cron_init() {
+		add_action( 'cron_schedules',  array( $this, 'prefix_add_cron_schedules' ) );
+		add_action( 'admin_init',  array( $this, 'prefix_add_scheduled_event' ) );
+		add_action( 'prefix_cron_hook',  array( $this, 'prefix_cron_task' ) );
 	}
 
  }

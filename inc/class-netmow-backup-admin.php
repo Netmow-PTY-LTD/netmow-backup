@@ -458,6 +458,11 @@
 								</form>
 							</div>
 						</div>
+						<div class="nb-widget-settings">
+							<div class="nbws-status">
+								<h2>Testt</h2>
+							</div>
+						</div>
 					</div>
 					<?php } ?>
 

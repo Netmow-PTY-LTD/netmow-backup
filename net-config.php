@@ -31,4 +31,7 @@ $google_client->addScope('profile');
 
 $google_client->addScope('https://www.googleapis.com/auth/drive');
 
+$google_client->setAccessType('offline');
+$google_client->setApprovalPrompt('force');
+
 }

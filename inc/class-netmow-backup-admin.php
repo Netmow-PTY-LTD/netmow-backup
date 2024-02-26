@@ -142,6 +142,7 @@
 			$client->setClientSecret($clientsec);
 			$client->setRedirectUri($redirecturl);
 			$client->setAccessType("offline");
+			$client->setApprovalPrompt('force');
 			$client->addScope("https://www.googleapis.com/auth/drive");
 	
 			$google_values = get_option( 'netmow_backup_google_account_data' );

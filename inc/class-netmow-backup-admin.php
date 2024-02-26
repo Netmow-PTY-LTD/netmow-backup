@@ -146,8 +146,16 @@
 	
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];
+
+			// Refresh the token if it's expired.
+			if ($client->isAccessTokenExpired()) {
+				$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
+			}else{
+				$accFromrefre = $accessToken;
+			}
+
 			$client->setAccessToken($accessToken);
-			$service = new Google_Service_Drive($client);
+			$service = new Google_Service_Drive($accFromrefre);
 	
 			$rootFolderID = "root";
 			$name = "Netmow Backup";
@@ -305,7 +313,6 @@
 			}else{
 				$google_client->setAccessToken($accessToken);
 			}
-			var_dump($token["access_token"]);
 			$google_service = new Google_Service_Oauth2($google_client);
 			$data = $google_service->userinfo->get();
 			if (!empty($data["given_name"])) {

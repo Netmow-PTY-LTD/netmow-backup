@@ -352,8 +352,10 @@
 			$AUaccessToken = $AUgoogle_values['g_access_token'];
 			$AuFromrefre = $google_client->fetchAccessTokenWithRefreshToken($AUaccessToken);
 
-			$google_client->setAccessToken($AuFromrefre);
-			$google_service = new Google_Service_Oauth2($google_client);
+			var_dump($AuFromrefre);
+
+			// $google_client->setAccessToken($AuFromrefre);
+			// $google_service = new Google_Service_Oauth2($google_client);
 		}
 	}
 

@@ -383,7 +383,7 @@
 					</a>
 				</div>
 			</div>
-			<div>Access token: <?php var_dump($google_values['g_access_token']); ?></div>
+			<div>Access token: <?php var_dump(get_option( 'netmow_backup_google_account_data' )['g_access_token']); ?></div>
 			<div class="nb-page-content">
 				<div class="nb-body-wrap">
 					<?php 

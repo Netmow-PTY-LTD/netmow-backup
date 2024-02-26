@@ -150,6 +150,7 @@
 			// Refresh the token if it's expired.
 			if ($client->isAccessTokenExpired()) {
 				$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
+				echo '<h1>New Refress token has been made ppp</h1>';
 			}else{
 				$accFromrefre = $accessToken;
 			}

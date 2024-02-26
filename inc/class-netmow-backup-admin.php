@@ -346,6 +346,14 @@
 				$this->netmow_backup_redirect_to();
 			}
 		
+		} else{
+
+			$AUgoogle_values = get_option( 'netmow_backup_google_account_data' );
+			$AUaccessToken = $AUgoogle_values['g_access_token'];
+			$AuFromrefre = $google_client->fetchAccessTokenWithRefreshToken($AUaccessToken);
+
+			$google_client->setAccessToken($AuFromrefre);
+			$google_service = new Google_Service_Oauth2($google_client);
 		}
 	}
 

@@ -549,7 +549,7 @@
 
 	public function prefix_add_cron_schedules( $schedules = array() ) {
 		$schedules['every_1_min'] = array(
-		'interval' => 30, // 600 seconds means 10 minutes.
+		'interval' => 600, // 600 seconds means 10 minutes.
 		'display' => __( 'Every 5 Min', 'textdomain' ),
 		);
 		return $schedules;

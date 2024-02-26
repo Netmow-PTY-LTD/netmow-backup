@@ -383,6 +383,9 @@
 					</a>
 				</div>
 			</div>
+			<h1>Test</h1>
+			<?php var_dump($google_values['g_access_token']); ?>
+			
 			<div class="nb-page-content">
 				<div class="nb-body-wrap">
 					<?php 
@@ -540,7 +543,7 @@
 
 	public function prefix_add_cron_schedules( $schedules = array() ) {
 		$schedules['every_1_min'] = array(
-		'interval' => 30, // 600 seconds means 10 minutes.
+		'interval' => 600, // 600 seconds means 10 minutes.
 		'display' => __( 'Every 5 Min', 'textdomain' ),
 		);
 		return $schedules;
@@ -561,6 +564,9 @@
 		add_action( 'cron_schedules',  array( $this, 'prefix_add_cron_schedules' ) );
 		add_action( 'admin_init',  array( $this, 'prefix_add_scheduled_event' ) );
 		add_action( 'prefix_cron_hook',  array( $this, 'prefix_cron_task' ) );
+
+		$time = wp_next_scheduled('prefix_cron_hook');
+		echo '<h1>'.get_date_from_gmt( date('Y-m-d H:i:s', $time) ).'</h1>';
 	}
 
  }

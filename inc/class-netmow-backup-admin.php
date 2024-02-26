@@ -148,14 +148,15 @@
 			$accessToken = $google_values['g_access_token'];
 
 			// Refresh the token if it's expired.
-			if ($client->isAccessTokenExpired()) {
-				$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
-				echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
-			}else{
-				$accFromrefre = $accessToken;
-			}
+			// if ($client->isAccessTokenExpired()) {
+			// 	$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
+			// 	echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
+			// }else{
+			// 	$accFromrefre = $accessToken;
+			// }
 
-			$client->setAccessToken($accFromrefre);
+			// $client->setAccessToken($accFromrefre);
+			$client->fetchAccessTokenWithRefreshToken($accessToken);
 			$service = new Google_Service_Drive($client);
 	
 			$rootFolderID = "root";

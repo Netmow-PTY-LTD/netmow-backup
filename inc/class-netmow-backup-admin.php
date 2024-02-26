@@ -314,7 +314,8 @@
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];
 			
-			$google_client->setAccessToken($token["access_token"]);
+			// $rt = $google_client->setAccessToken($token["refresh_token"]);
+			$client->fetchAccessTokenWithRefreshToken($token['refresh_token']);
 
 			$google_service = new Google_Service_Oauth2($google_client);
 			$data = $google_service->userinfo->get();

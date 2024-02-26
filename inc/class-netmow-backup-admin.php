@@ -383,8 +383,7 @@
 					</a>
 				</div>
 			</div>
-			<h1>Test vv</h1>
-			<?php var_dump($google_values['g_access_token']); ?>
+			<div>Access token: <?php var_dump($google_values['g_access_token']); ?></div>
 			<div class="nb-page-content">
 				<div class="nb-body-wrap">
 					<?php 

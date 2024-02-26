@@ -305,7 +305,7 @@
 			}else{
 				$google_client->setAccessToken($accessToken);
 			}
-		
+			var_dump($token["access_token"]);
 			$google_service = new Google_Service_Oauth2($google_client);
 			$data = $google_service->userinfo->get();
 			if (!empty($data["given_name"])) {

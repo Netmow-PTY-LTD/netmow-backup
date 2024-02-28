@@ -152,16 +152,16 @@
 			$accessToken = $google_values['g_access_token'];
 
 			// Refresh the token if it's expired.
-			// if ($client->isAccessTokenExpired()) {
-			// 	$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
-			// 	echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
-			// }else{
-			// 	$accFromrefre = $accessToken;
-			// }
+			if ($client->isAccessTokenExpired()) {
+				$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
+				echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
+			}else{
+				$accFromrefre = $accessToken;
+			}
 
-			// $client->setAccessToken($accFromrefre);
-			$google_client->fetchAccessTokenWithRefreshToken($accessToken);
-			$service = new Google_Service_Drive($google_client);
+			$client->setAccessToken($accFromrefre);
+			// $google_client->fetchAccessTokenWithRefreshToken($accessToken);
+			$service = new Google_Service_Drive($client);
 	
 			$rootFolderID = "root";
 			$name = "Netmow Backup";
@@ -314,8 +314,8 @@
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];
 			
-			// $rt = $google_client->setAccessToken($token["refresh_token"]);
-			$client->fetchAccessTokenWithRefreshToken($token['refresh_token']);
+
+				$google_client->setAccessToken($token["access_token"]);
 
 			$google_service = new Google_Service_Oauth2($google_client);
 			$data = $google_service->userinfo->get();

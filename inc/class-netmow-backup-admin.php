@@ -159,8 +159,8 @@
 				$accFromrefre = $accessToken;
 			}
 
-			$google_client->setAccessToken($accFromrefre);
-			// $google_client->fetchAccessTokenWithRefreshToken($accessToken);
+			// $google_client->setAccessToken($accFromrefre);
+			$google_client->fetchAccessTokenWithRefreshToken($accessToken);
 			$service = new Google_Service_Drive($google_client);
 	
 			$rootFolderID = "root";

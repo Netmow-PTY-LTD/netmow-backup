@@ -81,7 +81,6 @@ class Netmow_backup_features_init {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'netmow_backup_enqueue_styles' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'netmow_backup_add_admin_pages');
-		$this->loader->add_action( 'wp_footer', $plugin_admin, 'netmow_backup_add_embeded_code');
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_admin, 'netmow_backup_jquery_library_check_init' );
 	}
 

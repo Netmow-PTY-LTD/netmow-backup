@@ -465,7 +465,7 @@
 									$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
 								}
 
-								if(!empty($g_access_token)) { ?>
+								 ?>
 								<div class="nb-profile-info">
 									<div class="nb-avatar">
 										<img src="<?php echo $user_image; ?>" alt="<?php echo $user_first_name; ?>">
@@ -486,7 +486,6 @@
 										</div>
 									</div>
 								</div>
-								<?php }else{ ?>
 								<div class="nb-login-google">
 									<a href="<?php echo $google_client->createAuthUrl(); ?>">
 										<img src="<?php echo plugin_dir_url( __DIR__ ) . 'assets/img/google.png'; ?>" alt="Login With Goolgle">

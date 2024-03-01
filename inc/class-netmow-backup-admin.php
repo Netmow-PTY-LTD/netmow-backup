@@ -148,19 +148,23 @@
 			include plugin_dir_path( __DIR__ ) . "net-config.php";
 
 	
-			$google_values = get_option( 'netmow_backup_google_account_data' );
-			$accessToken = $google_values['g_access_token'];
+			// $google_values = get_option( 'netmow_backup_google_account_data' );
+			// $accessToken = $google_values['g_access_token'];
 
 			// Refresh the token if it's expired.
-			if ($google_client->isAccessTokenExpired()) {
-				$accFromrefre = $google_client->fetchAccessTokenWithRefreshToken($accessToken);
-				echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
-			}else{
-				$accFromrefre = $accessToken;
-			}
+			// if ($google_client->isAccessTokenExpired()) {
+			// 	$accFromrefre = $google_client->fetchAccessTokenWithRefreshToken($accessToken);
+			// 	echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
+			// }else{
+			// 	$accFromrefre = $accessToken;
+			// }
 
 			// $google_client->setAccessToken($accFromrefre);
-			$google_client->fetchAccessTokenWithRefreshToken($accessToken);
+			// $google_client->fetchAccessTokenWithRefreshToken($accessToken);
+			$google_client->setAccessToken('ya29.a0AfB_byDNhpajsgjslWYEAtDrEzSGswLTyFCW2VUOq6thpD8ofaSNwxnE4ItMal-74Cq-9wAsbTl96mS9Sv0ntSurubwbsDiVs-kFMk1TmC3yPrKpZskZgRE3XmHzG51TmJDhY_9UBOXzoktOtH9csZQXsJFRc5lVN_UaCgYKATwSARESFQHGX2Mi3SRWnNYcDw56Lic8PkZTyw0170');
+
+			$google_service = new Google_Service_Oauth2($google_client);
+
 			$service = new Google_Service_Drive($google_client);
 	
 			$rootFolderID = "root";
@@ -311,10 +315,6 @@
 		
 			if (!isset($token["error"])) {
 			
-			$google_values = get_option( 'netmow_backup_google_account_data' );
-			$accessToken = $google_values['g_access_token'];
-			
-
 				$google_client->setAccessToken($token["access_token"]);
 
 			$google_service = new Google_Service_Oauth2($google_client);
@@ -347,6 +347,7 @@
 		
 			echo '<h1>Auth Done From Google</h1>';
 				$this->netmow_backup_redirect_to();
+
 			}
 		
 		}

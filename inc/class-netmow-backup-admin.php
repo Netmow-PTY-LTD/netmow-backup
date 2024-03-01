@@ -303,8 +303,8 @@
 			
 				// $google_client->setAccessToken($token["access_token"]);
 
-				// $google_service = new Google_Service_Oauth2($google_client);
-				// $data = $google_service->userinfo->get();
+				$google_service = new Google_Service_Oauth2($google_client);
+				$data = $google_service->userinfo->get();
 				// if (!empty($data["given_name"])) {
 				// 	$user_first_name = $data["given_name"];
 				// }
@@ -331,8 +331,8 @@
 				// //entering data into options table
 				// update_option( 'netmow_backup_google_account_data', $gdata );
 			
-				echo '<h1>Auth Done From Google</h1>';
-				$this->netmow_backup_redirect_to();
+				echo '<h1>Auth Done From Google</h1>'.$data["given_name"];
+				// $this->netmow_backup_redirect_to();
 
 			}
 		

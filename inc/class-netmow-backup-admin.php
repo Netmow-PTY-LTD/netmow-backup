@@ -437,17 +437,45 @@
 							</div>
 						</div>
 						<div class="nb-widget-settings">
-							<div class="nbws-status" style="color: #1ba94b">
-								<h2>Automatic Bacup is On</h2>
+							<div class="nbws-status nbws-status-on">
+								<h2>
+									<span>Automatic Bacup is On</span>
+									<div class="icon">
+										<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_37_128)">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M29.2426 4.6995C29.575 4.49956 29.9719 4.43615 30.35 4.52257C30.7281 4.60899 31.0581 4.83853 31.2706 5.163L32.7556 7.428C32.9492 7.72389 33.032 8.07866 32.9895 8.42968C32.9469 8.7807 32.7818 9.10542 32.5231 9.3465L32.5186 9.3525L32.4976 9.372L32.4121 9.4515L32.0746 9.774C30.2071 11.5854 28.3962 13.4543 26.6446 15.378C23.3491 19.002 19.4356 23.745 16.8016 28.347C16.0666 29.631 14.2711 29.907 13.2061 28.7985L3.47861 18.6915C3.33921 18.5466 3.23036 18.3752 3.15854 18.1874C3.08671 17.9996 3.05338 17.7992 3.06052 17.5983C3.06765 17.3974 3.11511 17.1999 3.20008 17.0177C3.28505 16.8354 3.40578 16.6721 3.55511 16.5375L6.49511 13.8855C6.75348 13.6526 7.08477 13.5167 7.43228 13.5011C7.77979 13.4855 8.12192 13.5911 8.40011 13.8L13.3636 17.5215C21.1171 9.876 25.5136 6.942 29.2426 4.6995Z" fill="#1BA94B"/>
+										</g>
+										<defs>
+										<clipPath id="clip0_37_128">
+										<rect width="36" height="36" fill="white"/>
+										</clipPath>
+										</defs>
+										</svg>
+									</div>
+								</h2>
 								<form method="post">
 									<input type="submit" name="aboff" id="aboff" value="Turn Off">
 								</form>
 							</div>
+							<div class="nbws-status nbws-status-off">
+								<h2>
+									<span>Automatic Bacup is Off</span>
+									<div class="icon">
+										<svg width="34" height="36" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M32.9818 29.25C32.9818 29.9817 32.7257 30.6037 32.2135 31.1159L28.4818 34.8476C27.9696 35.3598 27.3477 35.6159 26.616 35.6159C25.8843 35.6159 25.2623 35.3598 24.7501 34.8476L16.6831 26.7805L8.61598 34.8476C8.10379 35.3598 7.48184 35.6159 6.75013 35.6159C6.01842 35.6159 5.39647 35.3598 4.88428 34.8476L1.15257 31.1159C0.640375 30.6037 0.384277 29.9817 0.384277 29.25C0.384277 28.5183 0.640375 27.8964 1.15257 27.3842L9.21964 19.3171L1.15257 11.25C0.640375 10.7378 0.384277 10.1159 0.384277 9.38416C0.384277 8.65246 0.640375 8.03051 1.15257 7.51831L4.88428 3.7866C5.39647 3.27441 6.01842 3.01831 6.75013 3.01831C7.48184 3.01831 8.10379 3.27441 8.61598 3.7866L16.6831 11.8537L24.7501 3.7866C25.2623 3.27441 25.8843 3.01831 26.616 3.01831C27.3477 3.01831 27.9696 3.27441 28.4818 3.7866L32.2135 7.51831C32.7257 8.03051 32.9818 8.65246 32.9818 9.38416C32.9818 10.1159 32.7257 10.7378 32.2135 11.25L24.1465 19.3171L32.2135 27.3842C32.7257 27.8964 32.9818 28.5183 32.9818 29.25Z" fill="#C42027"/>
+										</svg>
+									</div>
+								</h2>
+								<form method="post">
+									<input type="submit" name="abon" id="abon" value="Turn On">
+								</form>
+							</div>
 							<div class="nbws-time">
 								<form method="post">
-								<span>Take bakup in every </span>
-								<input type="text" name="abtime" value="7">
-								<input type="submit" name="abtime_s" id="abtime_s" value="Save">
+									<span>Take bakup in every </span>
+									<input type="text" name="abtime" value="7">
+									<span>days</span>
+									<input type="submit" name="abtime_s" id="abtime_s" value="Save">
 								</form>
 							</div>
 						</div>

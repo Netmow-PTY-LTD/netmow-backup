@@ -437,8 +437,18 @@
 							</div>
 						</div>
 						<div class="nb-widget-settings">
-							<div class="nbws-status">
-								<h2>Testt</h2>
+							<div class="nbws-status" style="color: #1ba94b">
+								<h2>Automatic Bacup is On</h2>
+								<form method="post">
+									<input type="submit" name="aboff" id="aboff" value="Turn Off">
+								</form>
+							</div>
+							<div class="nbws-time">
+								<form method="post">
+								<span>Take bakup in every </span>
+								<input type="text" name="abtime" value="7">
+								<input type="submit" name="abtime_s" id="abtime_s" value="Save">
+								</form>
 							</div>
 						</div>
 					</div>

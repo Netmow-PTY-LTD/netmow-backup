@@ -444,7 +444,7 @@
 					</div>
 					<?php } ?>
 
-					<?php if(!empty($clientid) && !empty($clientsec) && !empty($redirecturl)) { ?>
+					
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google Account</h2>
 						<div class="nb-widget-body">
@@ -498,7 +498,6 @@
 							</div>
 						</div>
 					</div>
-					<?php } ?>
 					
 					<div class="nb-widget">
 						<h2 class="nb-widget-title">Google API</h2>

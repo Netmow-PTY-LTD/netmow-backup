@@ -133,42 +133,33 @@
 		$clientsec = '';
 		$redirecturl = '';
 		
-		
 		if( $db_values ) {
 			$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';
 			$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
 			$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
 		
-			// require_once WP_PLUGIN_DIR . '/netmow-backup/google-api-php-client/vendor/autoload.php';
-			// $client = new Google_Client();
-			// $client->setClientId($clientid);
-			// $client->setClientSecret($clientsec);
-			// $client->setRedirectUri($redirecturl);
-			// $client->setAccessType("offline");
-			// $client->setApprovalPrompt('force');
-			// $client->addScope("https://www.googleapis.com/auth/drive");
-
-			include plugin_dir_path( __DIR__ ) . "net-config.php";
-
+			require_once WP_PLUGIN_DIR . '/netmow-backup/google-api-php-client/vendor/autoload.php';
+			$client = new Google_Client();
+			$client->setClientId($clientid);
+			$client->setClientSecret($clientsec);
+			$client->setRedirectUri($redirecturl);
+			$client->setAccessType("offline");
+			$client->addScope("https://www.googleapis.com/auth/drive");
 	
-			// $google_values = get_option( 'netmow_backup_google_account_data' );
-			// $accessToken = $google_values['g_access_token'];
+			$google_values = get_option( 'netmow_backup_google_account_data' );
+			$accessToken = $google_values['g_access_token'];
 
 			// Refresh the token if it's expired.
-			// if ($google_client->isAccessTokenExpired()) {
-			// 	$accFromrefre = $google_client->fetchAccessTokenWithRefreshToken($accessToken);
-			// 	echo '<h1>New Refress token has been made ppp:</h1>'. $accFromrefre;
-			// }else{
-			// 	$accFromrefre = $accessToken;
-			// }
+			if ($client->isAccessTokenExpired()) {
+				$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
+				echo '<h1>New Refress token has been made ppp</h1>';
+			}else{
+				$accFromrefre = $accessToken;
+			}
 
-			// $google_client->setAccessToken($accFromrefre);
-			// $google_client->fetchAccessTokenWithRefreshToken($accessToken);
-			$google_client->setAccessToken('ya29.a0AfB_byDNhpajsgjslWYEAtDrEzSGswLTyFCW2VUOq6thpD8ofaSNwxnE4ItMal-74Cq-9wAsbTl96mS9Sv0ntSurubwbsDiVs-kFMk1TmC3yPrKpZskZgRE3XmHzG51TmJDhY_9UBOXzoktOtH9csZQXsJFRc5lVN_UaCgYKATwSARESFQHGX2Mi3SRWnNYcDw56Lic8PkZTyw0170');
-
-			$google_service = new Google_Service_Oauth2($google_client);
-
-			$service = new Google_Service_Drive($google_client);
+			$client->setAccessToken($accFromrefre);
+			$service = new Google_Service_Drive($client);
+	
 	
 			$rootFolderID = "root";
 			$name = "Netmow Backup";

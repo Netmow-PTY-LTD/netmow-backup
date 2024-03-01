@@ -329,7 +329,7 @@
 					// 'user_image' => $user_image,
 				);
 				// //entering data into options table
-				// update_option( 'netmow_backup_google_account_data', $gdata );
+				update_option( 'netmow_backup_google_account_data', $gdata );
 			
 				echo '<h1>Auth Done From Google</h1>'.$data["given_name"];
 				// $this->netmow_backup_redirect_to();

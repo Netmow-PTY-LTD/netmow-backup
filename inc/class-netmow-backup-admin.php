@@ -138,7 +138,7 @@
 			$clientsec = $db_values['clientsec'] ? $db_values['clientsec'] : '';
 			$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
 		
-			require_once WP_PLUGIN_DIR . '/netmow-backup/google-api-php-client/vendor/autoload.php';
+			include plugin_dir_path( __DIR__ ) . "net-config.php";
 			// $client = new Google_Client();
 			// $client->setClientId($clientid);
 			// $client->setClientSecret($clientsec);
@@ -149,8 +149,8 @@
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];
 
-			$client->setAccessToken($accessToken);
-			$service = new Google_Service_Drive($client);
+			$google_client->setAccessToken($accessToken);
+			$service = new Google_Service_Drive($google_client);
 	
 	
 			$rootFolderID = "root";

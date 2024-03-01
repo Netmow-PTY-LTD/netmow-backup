@@ -139,12 +139,12 @@
 			$redirecturl = $db_values['redirecturl'] ? $db_values['redirecturl'] : '';
 		
 			require_once WP_PLUGIN_DIR . '/netmow-backup/google-api-php-client/vendor/autoload.php';
-			$client = new Google_Client();
-			$client->setClientId($clientid);
-			$client->setClientSecret($clientsec);
-			$client->setRedirectUri($redirecturl);
-			$client->setAccessType("offline");
-			$client->addScope("https://www.googleapis.com/auth/drive");
+			// $client = new Google_Client();
+			// $client->setClientId($clientid);
+			// $client->setClientSecret($clientsec);
+			// $client->setRedirectUri($redirecturl);
+			// $client->setAccessType("offline");
+			// $client->addScope("https://www.googleapis.com/auth/drive");
 	
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];

@@ -149,15 +149,7 @@
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];
 
-			// Refresh the token if it's expired.
-			if ($client->isAccessTokenExpired()) {
-				$accFromrefre = $client->fetchAccessTokenWithRefreshToken($accessToken);
-				echo '<h1>New Refress token has been made ppp</h1>';
-			}else{
-				$accFromrefre = $accessToken;
-			}
-
-			$client->setAccessToken($accFromrefre);
+			$client->setAccessToken($accessToken);
 			$service = new Google_Service_Drive($client);
 	
 	
@@ -311,35 +303,35 @@
 			
 				$google_client->setAccessToken($token["access_token"]);
 
-			$google_service = new Google_Service_Oauth2($google_client);
-			$data = $google_service->userinfo->get();
-			if (!empty($data["given_name"])) {
-				$user_first_name = $data["given_name"];
-			}
-			if (!empty($data["family_name"])) {
-				$user_last_name = $data["family_name"];
-			}
-			if (!empty($data["email"])) {
-				$user_email_address = $data["email"];
-			}
-			if (!empty($data["gender"])) {
-				$user_gender = $data["gender"];
-			}
-			if (!empty($data["picture"])) {
-				$user_image = $data["picture"];
-			}
-			$gdata = array(
-				'g_access_token'  => $token["access_token"],
-				'user_first_name' => $user_first_name,
-				'user_last_name' => $user_last_name,
-				'user_email_address' => $user_email_address,
-				'user_gender' => $user_gender,
-				'user_image' => $user_image,
-			);
-			//entering data into options table
-			update_option( 'netmow_backup_google_account_data', $gdata );
-		
-			echo '<h1>Auth Done From Google</h1>';
+				$google_service = new Google_Service_Oauth2($google_client);
+				$data = $google_service->userinfo->get();
+				if (!empty($data["given_name"])) {
+					$user_first_name = $data["given_name"];
+				}
+				if (!empty($data["family_name"])) {
+					$user_last_name = $data["family_name"];
+				}
+				if (!empty($data["email"])) {
+					$user_email_address = $data["email"];
+				}
+				if (!empty($data["gender"])) {
+					$user_gender = $data["gender"];
+				}
+				if (!empty($data["picture"])) {
+					$user_image = $data["picture"];
+				}
+				$gdata = array(
+					'g_access_token'  => $token["access_token"],
+					'user_first_name' => $user_first_name,
+					'user_last_name' => $user_last_name,
+					'user_email_address' => $user_email_address,
+					'user_gender' => $user_gender,
+					'user_image' => $user_image,
+				);
+				//entering data into options table
+				update_option( 'netmow_backup_google_account_data', $gdata );
+			
+				echo '<h1>Auth Done From Google</h1>';
 				$this->netmow_backup_redirect_to();
 
 			}

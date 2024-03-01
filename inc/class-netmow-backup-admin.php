@@ -125,11 +125,14 @@
 		rmdir($dir);
 	}
 
+
+
 	public function netmow_backup_push_to_drive($today) {
 		$db_values = get_option( 'netmow_google_keys' );
 		$clientid = '';
 		$clientsec = '';
 		$redirecturl = '';
+		
 		
 		if( $db_values ) {
 			$clientid = $db_values['clientid'] ? $db_values['clientid'] : '';

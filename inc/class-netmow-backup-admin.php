@@ -320,14 +320,14 @@
 				// if (!empty($data["picture"])) {
 				// 	$user_image = $data["picture"];
 				// }
-				// $gdata = array(
-				// 	'g_access_token'  => $token["access_token"],
-				// 	'user_first_name' => $user_first_name,
-				// 	'user_last_name' => $user_last_name,
-				// 	'user_email_address' => $user_email_address,
-				// 	'user_gender' => $user_gender,
-				// 	'user_image' => $user_image,
-				// );
+				$gdata = array(
+					'g_access_token'  => $token["access_token"],
+					// 'user_first_name' => $user_first_name,
+					// 'user_last_name' => $user_last_name,
+					// 'user_email_address' => $user_email_address,
+					// 'user_gender' => $user_gender,
+					// 'user_image' => $user_image,
+				);
 				// //entering data into options table
 				// update_option( 'netmow_backup_google_account_data', $gdata );
 			

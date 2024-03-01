@@ -35,3 +35,9 @@ $google_client->setAccessType('offline');
 $google_client->setApprovalPrompt('force');
 
 }
+
+if ($client->isAccessTokenExpired()) {
+    echo '<div style="color: red">Exp</div>';
+} else{
+    echo '<div style="color: green">Not Exp</div>';
+}

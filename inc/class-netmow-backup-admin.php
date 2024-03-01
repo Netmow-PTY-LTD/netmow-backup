@@ -301,38 +301,38 @@
 		
 			if (!isset($token["error"])) {
 			
-				// $google_client->setAccessToken($token["access_token"]);
+				$google_client->setAccessToken($token["access_token"]);
 
 				$google_service = new Google_Service_Oauth2($google_client);
 				$data = $google_service->userinfo->get();
-				// if (!empty($data["given_name"])) {
-				// 	$user_first_name = $data["given_name"];
-				// }
-				// if (!empty($data["family_name"])) {
-				// 	$user_last_name = $data["family_name"];
-				// }
-				// if (!empty($data["email"])) {
-				// 	$user_email_address = $data["email"];
-				// }
-				// if (!empty($data["gender"])) {
-				// 	$user_gender = $data["gender"];
-				// }
-				// if (!empty($data["picture"])) {
-				// 	$user_image = $data["picture"];
-				// }
+				if (!empty($data["given_name"])) {
+					$user_first_name = $data["given_name"];
+				}
+				if (!empty($data["family_name"])) {
+					$user_last_name = $data["family_name"];
+				}
+				if (!empty($data["email"])) {
+					$user_email_address = $data["email"];
+				}
+				if (!empty($data["gender"])) {
+					$user_gender = $data["gender"];
+				}
+				if (!empty($data["picture"])) {
+					$user_image = $data["picture"];
+				}
 				$gdata = array(
 					'g_access_token'  => $token["access_token"],
-					// 'user_first_name' => $user_first_name,
-					// 'user_last_name' => $user_last_name,
-					// 'user_email_address' => $user_email_address,
-					// 'user_gender' => $user_gender,
-					// 'user_image' => $user_image,
+					'user_first_name' => $user_first_name,
+					'user_last_name' => $user_last_name,
+					'user_email_address' => $user_email_address,
+					'user_gender' => $user_gender,
+					'user_image' => $user_image,
 				);
-				// //entering data into options table
+				//entering data into options table
 				update_option( 'netmow_backup_google_account_data', $gdata );
 			
-				echo '<h1>Auth Done From Google</h1>'.$data["given_name"];
-				// $this->netmow_backup_redirect_to();
+				echo '<h1>Auth Done From Google</h1>';
+				$this->netmow_backup_redirect_to();
 
 			}
 		
@@ -398,6 +398,7 @@
 						$authValus = get_option( 'netmow_backup_google_account_data' );
 						
 					?>
+					<?php if(!empty($clientid) && !empty($clientsec) && !empty($redirecturl) && !empty($authValus['g_access_token'])) { ?>
 					<div class="nb-widget">
 						<div class="nb-data-wrap">
 							<div class="nb-data-left">
@@ -441,6 +442,7 @@
 							</div>
 						</div>
 					</div>
+					<?php } ?>
 
 					<?php if(!empty($clientid) && !empty($clientsec) && !empty($redirecturl)) { ?>
 					<div class="nb-widget">
@@ -465,7 +467,7 @@
 									$user_image = $acc_valus['user_image'] ? $acc_valus['user_image'] : '';
 								}
 
-								 ?>
+								if(!empty($g_access_token)) { ?>
 								<div class="nb-profile-info">
 									<div class="nb-avatar">
 										<img src="<?php echo $user_image; ?>" alt="<?php echo $user_first_name; ?>">
@@ -486,11 +488,13 @@
 										</div>
 									</div>
 								</div>
+								<?php }else{ ?>
 								<div class="nb-login-google">
 									<a href="<?php echo $google_client->createAuthUrl(); ?>">
 										<img src="<?php echo plugin_dir_url( __DIR__ ) . 'assets/img/google.png'; ?>" alt="Login With Goolgle">
 									</a>
 								</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

@@ -37,7 +37,9 @@ $google_client->setAccessType('offline');
 
 
 $gt_values = get_option( 'netmow_backup_google_account_data' );
-$google_client->fetchAccessTokenWithRefreshToken($gt_values['g_access_token']);
+// $google_client->fetchAccessTokenWithRefreshToken($gt_values['g_access_token']);
+echo $gt_values['g_access_token'];
+
 
 if ($google_client->isAccessTokenExpired()) {
     echo '<div style="color: red">Exp</div>';

@@ -284,7 +284,7 @@
 			$this->netmow_backup_zip_and_push();
 		}
 	}
-	
+
 
 	public function netmow_backup_redirect_to() {
 		$nbRedirect = get_admin_url() . 'admin.php?page=netmow-backup';;
@@ -300,9 +300,11 @@
 		
 			if (!isset($token["error"])) {
 			
-				$google_client->setAccessToken($token["access_token"]);
+				// $google_client->setAccessToken($token["access_token"]);
 
-				$google_service = new Google_Service_Oauth2($google_client);
+				$google_client->authenticate($_GET['code']);
+
+				// $google_service = new Google_Service_Oauth2($google_client);
 				$data = $google_service->userinfo->get();
 				if (!empty($data["given_name"])) {
 					$user_first_name = $data["given_name"];

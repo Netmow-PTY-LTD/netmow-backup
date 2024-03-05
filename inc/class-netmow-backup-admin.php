@@ -284,6 +284,7 @@
 			$this->netmow_backup_zip_and_push();
 		}
 	}
+	
 
 	public function netmow_backup_redirect_to() {
 		$nbRedirect = get_admin_url() . 'admin.php?page=netmow-backup';;

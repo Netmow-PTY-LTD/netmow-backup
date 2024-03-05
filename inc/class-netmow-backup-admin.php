@@ -305,7 +305,7 @@
 				$google_client->authenticate($_GET['code']);
 
 				// $google_service = new Google_Service_Oauth2($google_client);
-				$data = $google_service->userinfo->get();
+				$data = $google_client->userinfo->get();
 				if (!empty($data["given_name"])) {
 					$user_first_name = $data["given_name"];
 				}

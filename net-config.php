@@ -36,10 +36,10 @@ $google_client->addScope('https://www.googleapis.com/auth/drive');
 }
 
 
-$gt_values = get_option( 'netmow_backup_google_account_data' );
-if(!empty($gt_values['g_access_token'])){
-    $google_client->fetchAccessTokenWithRefreshToken($gt_values['g_access_token']);
-}
+// $gt_values = get_option( 'netmow_backup_google_account_data' );
+// if(!empty($gt_values['g_access_token'])){
+//     $google_client->fetchAccessTokenWithRefreshToken($gt_values['g_access_token']);
+// }
 
 var_dump($google_client->fetchAccessTokenWithRefreshToken($gt_values['g_access_token']));
 

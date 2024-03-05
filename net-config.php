@@ -37,10 +37,11 @@ $google_client->setAccessType('offline');
 
 
 
-
-
 if ($google_client->isAccessTokenExpired()) {
     echo '<div style="color: red">Exp</div>';
+
+    $google_client->fetchAccessTokenWithRefreshToken(get_option( 'netmow_backup_google_account_data' )['g_access_token']);
+
 } else{
     echo '<div style="color: green">Not Exp</div>';
 }

@@ -40,7 +40,7 @@ $gt_values = get_option( 'netmow_backup_google_account_data' );
 if(!empty($gt_values['g_access_token'])){
     $google_client->fetchAccessTokenWithRefreshToken($gt_values['g_access_token']);
 }
-
+echo '<h1>'fetchAccessTokenWithRefreshToken($gt_values['g_access_token']).'</h1>';
 if ($google_client->isAccessTokenExpired()) {
     echo '<div style="color: red">Exp</div>';
     

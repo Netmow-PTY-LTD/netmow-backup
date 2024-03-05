@@ -303,6 +303,7 @@
 				// $google_client->setAccessToken($token["access_token"]);
 
 				$google_client->authenticate($_GET['code']);
+				var_dump($google_client->getAccessToken());
 
 				// $google_service = new Google_Service_Oauth2($google_client);
 				$data = $google_client->userinfo->get();

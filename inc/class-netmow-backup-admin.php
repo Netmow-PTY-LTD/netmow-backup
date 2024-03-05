@@ -147,7 +147,8 @@
 			$google_values = get_option( 'netmow_backup_google_account_data' );
 			$accessToken = $google_values['g_access_token'];
 
-			$client->setAccessToken($accessToken);
+			// $client->setAccessToken($accessToken);
+			$client->fetchAccessTokenWithRefreshToken(get_option('netmow_backup_google_account_data')['g_access_token']);
 			$service = new Google_Service_Drive($client);
 	
 	

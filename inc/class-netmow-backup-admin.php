@@ -456,7 +456,7 @@
 									<input type="submit" name="aboff" id="aboff" value="Turn Off">
 								</form>
 							</div>
-							<div class="nbws-status nbws-status-off">
+							<div class="nbws-status nbws-status-off" style="display: none">
 								<h2>
 									<span>Automatic Bacup is Off</span>
 									<div class="icon">

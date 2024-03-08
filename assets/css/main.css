@@ -236,7 +236,7 @@
 
 .nb-widget-settings {
 	border-top: 1px dashed #b7b7b7;
-	padding-top: 22px;
+	padding-top: 36px;
 }
 .nbws-status {
 	display: flex;
@@ -249,7 +249,11 @@
 	margin: 0;
 	column-gap: 8px;
 	font-size: 29px;
-	margin-bottom: 12px;
+	margin-bottom: 15px;
+	color: #1ba94b;
+}
+.nbws-status.nbws-status-off h2 {
+	color: #c42027;
 }
 .nbws-status h2 .icon {
 	width: 36px;
@@ -265,4 +269,7 @@
 	font-size: 18px;
 	text-transform: uppercase;
 	cursor: pointer;
+}
+.nbws-status.nbws-status-off form input[type="submit"] {
+	background-color: #1ba94b;
 }

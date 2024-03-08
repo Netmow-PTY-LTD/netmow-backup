@@ -247,16 +247,16 @@
 	display: flex;
 	align-items: center;
 	margin: 0;
-	column-gap: 8px;
-	font-size: 29px;
-	margin-bottom: 15px;
+	column-gap: 6px;
+	font-size: 25px;
+	margin-bottom: 21px;
 	color: #1ba94b;
 }
 .nbws-status.nbws-status-off h2 {
 	color: #c42027;
 }
 .nbws-status h2 .icon {
-	width: 36px;
+	width: 29px;
 	display: flex;
 }
 .nbws-status form input[type="submit"] {
@@ -264,12 +264,37 @@
 	border: none;
 	outline: none;
 	color: #fff;
-	width: 170px;
-	height: 50px;
-	font-size: 18px;
+	width: 155px;
+	height: 44px;
+	font-size: 16px;
 	text-transform: uppercase;
 	cursor: pointer;
 }
 .nbws-status.nbws-status-off form input[type="submit"] {
 	background-color: #1ba94b;
+}
+.nbws-time {
+	margin-top: 50px;
+}
+.nbws-time form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	column-gap: 5px;
+}
+.nbws-time form input[type="text"] {
+	width: 57px;
+	text-align: center;
+}
+.nbws-time form input[type="submit"] {
+	width: 75px;
+	height: 30px;
+	background-color: #1ba94b;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	text-transform: uppercase;
+	margin-left: 14px;
 }

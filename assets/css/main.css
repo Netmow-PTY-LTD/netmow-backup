@@ -243,3 +243,26 @@
 	flex-direction: column;
 	align-items: center;
 }
+.nbws-status h2 {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	column-gap: 8px;
+	font-size: 29px;
+	margin-bottom: 12px;
+}
+.nbws-status h2 .icon {
+	width: 36px;
+	display: flex;
+}
+.nbws-status form input[type="submit"] {
+	background-color: #c42027;
+	border: none;
+	outline: none;
+	color: #fff;
+	width: 170px;
+	height: 50px;
+	font-size: 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
